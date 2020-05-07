@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 An online E-book library. 
 
-### USERS
+#### USERS
 Users are defined as the target-audience which the App aims to attract.
 Requirements for these users are;
 1. Register to the system.
