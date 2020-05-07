@@ -17,7 +17,13 @@ Requirements for these users are;
                   2. Leave a star rating.
                   3. Add book onto reading list.
  4. Search for a book. 
- 5. Delete account
+ 5. Delete account.
+ 
+ #### System Admins
+ System Admins are those that may have similar roles to the traditional librarian. They are able to;
+ 1. Add new Books.
+ 2. Remove old Books.
+ 
 
 ### `npm start`
 
