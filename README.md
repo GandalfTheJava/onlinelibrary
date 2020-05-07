@@ -10,11 +10,11 @@ Requirements for these users are;
 1. Register to the system.
 2. Login and Logout as needed.
 3. Browse the available book genres.
-3.1 Browse individual genres
-3.1.1 Browse individual books.
-3.1.1.1 Borrow a book
-3.1.1.1.1 Reserve a book if *out of stock*
-3.1.1.1 Leave a star rating 
+  1. Browse individual genres
+    1. Browse individual books.
+      1. Borrow a book
+        1. Reserve a book if *out of stock*
+    2. Leave a star rating 
 
 ### `npm start`
 
