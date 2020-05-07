@@ -10,7 +10,7 @@ Requirements for these users are;
 1. Register to the system.
 2. Login and Logout as needed.
 3. Browse the available book genres.
-  1. Browse individual genres
+  3.1. Browse individual genres
     1. Browse individual books.
       1. Borrow a book
         1. Reserve a book if *out of stock*
