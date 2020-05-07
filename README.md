@@ -7,14 +7,14 @@ An online E-book library.
 ### USERS
 Users are defined as the target-audience which the App aims to attract.
 Requirements for these users are;
-1.Register to the system.
-2.Login and Logout as needed.
-3.Browse the available book genres.
-3.1Browse individual genres
-3.1.1Browse individual books.
-3.1.1.1Borrow a book
-3.1.1.1.1Reserve a book if *out of stock*
-3.1.1.1Leave a star rating 
+1. Register to the system.
+2. Login and Logout as needed.
+3. Browse the available book genres.
+3.1 Browse individual genres
+3.1.1 Browse individual books.
+3.1.1.1 Borrow a book
+3.1.1.1.1 Reserve a book if *out of stock*
+3.1.1.1 Leave a star rating 
 
 ### `npm start`
 
