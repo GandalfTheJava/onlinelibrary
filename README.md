@@ -34,6 +34,7 @@ Requirements for these users are;
 - Encrption/Decryption packages
 - Git for version control
 - React Bootstrap Library
+
 WILL UPDATE AS THE PROJECT PROGRESSES
 
 ### `npm start`
