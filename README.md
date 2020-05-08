@@ -22,8 +22,19 @@ Requirements for these users are;
  #### System Admins
  System Admins are those that may have similar roles to the traditional librarian. They are able to;
  1. Add new Books.
- 2. Remove old Books.
- 
+ 2. Delete old Books.
+ 3. Add new Admins.
+ 4. Admins can only remove their individual accounts. 
+
+
+##### TechStack
+- ReactJS for front-end development
+- SCSS for pre-processor
+- MongoDB for the backend
+- Encrption/Decryption packages
+- Git for version control
+- React Bootstrap Library
+WILL UPDATE AS THE PROJECT PROGRESSES
 
 ### `npm start`
 
