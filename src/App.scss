@@ -1,2 +1,25 @@
 @import "~bootstrap/scss/bootstrap";
+@import './Global.scss';
 
+.container-wrap{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+.header{
+  height: 7vh;
+  background-color: white;
+}
+
+.body{
+  height: 90vh;
+  background-color: white;
+}
+
+.footer{
+  height: 3vh;
+  background-color: $lightBlue;
+}

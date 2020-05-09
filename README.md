@@ -16,8 +16,7 @@ Requirements for these users are;
                         1. Reserve a book if *out of stock*
                   2. Leave a star rating.
                   3. Add book onto reading list.
- 4. Search for a book. 
- 5. Delete account.
+ 4. Delete account.
  
  #### System Admins
  System Admins are those that may have similar roles to the traditional librarian. They are able to;
@@ -30,10 +29,10 @@ Requirements for these users are;
 ##### TechStack
 - ReactJS for front-end development
 - SCSS for pre-processor
-- MongoDB for the backend
-- Encrption/Decryption packages
+- Firebase Auth to register users with emails/passwords
 - Git for version control
 - React Bootstrap Library
+- Google Books API to retrieve a list of books
 
 WILL UPDATE AS THE PROJECT PROGRESSES
 
