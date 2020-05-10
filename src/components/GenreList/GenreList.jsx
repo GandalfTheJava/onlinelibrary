@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import CustomButton from '../../components/custom-button/custom-button.component';
+
 class GenreList extends Component {
     constructor(props) {
         super(props)
@@ -20,24 +21,7 @@ class GenreList extends Component {
             <div>
                 <div>
                     <div>
-                        {[DropdownButton].map((DropdownType, idx) => (
-                            <>
-                                <DropdownType
-                                    as={ButtonGroup}
-                                    key={idx}
-                                    id={`dropdown-button-drop-${idx}`}
-                                    size="sm"
-                                    variant="warning"
-                                    title="Genre List"
-                                >
-                                    <Dropdown.Item value="Action" href="Action">Action</Dropdown.Item>
-                                    <Dropdown.Item value="Novel" href="Novel">Novel</Dropdown.Item>
-                                    <Dropdown.Item value="Fantasy" href="Fantasy">Fantasy</Dropdown.Item>
-                                    <Dropdown.Item value="Non-fiction" href="Non-fiction">Non-fiction</Dropdown.Item>
-
-                                </DropdownType>
-                            </>
-                        ))}
+                        <CustomButton dropdown={true} />
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Header from './components/header/header.component';
+import Directory from './components/directory/directory.component';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +15,8 @@ function App() {
       <div className="container-wrap">
         <Header />
         <Router>
-          <Route path="/signIn" component="signin" />
+          <Route path="/" component={Directory} />
+          <Route exact path="/signIn" />
         </Router>
         <div className="body">
 

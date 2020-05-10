@@ -1,0 +1,12 @@
+.genre-list-container{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    align-items: flex-start;
+}
+
+.genre-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

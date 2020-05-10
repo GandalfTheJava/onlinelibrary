@@ -1,22 +1,20 @@
+@import '../../Global.scss';
+
 .header-wrap{
-    width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    
+    margin: 10px 10px;
+    background-color: $cyber;
 }
 .options-container{
     display: flex;
+    width:20vh;
     flex-direction: row;
     justify-content: space-between;
-     
+    margin-right: 10px;
 }
-@keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+
+
 
