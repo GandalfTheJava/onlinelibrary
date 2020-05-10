@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './directory.styles.scss';
+import DirectoryItem from '../directory-item/directory-item.component';
 class Directory extends Component {
     constructor(props) {
         super(props)
@@ -108,10 +109,9 @@ class Directory extends Component {
                 <div className="genre-list-title">{genre.genreName}</div>
                 <div className="genre-items">
                     {
-                        genre.bookList.filter((items, idx) => idx < 3).map(item => (
+                        genre.bookList.filter((items, idx) => idx < 2).map(item => (
                             <div>
-                                <div>{item.bookName}</div>
-                                <div>{item.bookAuthor}</div>
+                                <DirectoryItem bookName={item.bookName} bookAuthor={item.bookAuthor} />
                             </div>
                         )
 

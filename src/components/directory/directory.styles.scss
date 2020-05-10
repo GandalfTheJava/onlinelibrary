@@ -1,12 +1,18 @@
+@import url('../../Global.scss');
 .genre-list-container{
     display: flex;
     flex-direction: column;
-    background-color: red;
-    align-items: flex-start;
+    align-items: center;
+    margin:10px 10px;
+    border: 2px solid rgb(98, 98, 241);
 }
-
+.genre-list-title{
+    font-family: cursive;
+    font-size: 30px;
+}
 .genre-items{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
