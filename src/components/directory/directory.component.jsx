@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './directory.styles.scss';
+
 import books from '../../assets/database';
 
 import DirectoryItem from '../directory-item/directory-item.component';
+import CustomButton from "../custom-button/custom-button.component";
 class Directory extends Component {
     constructor(props) {
         super(props)
@@ -21,7 +23,7 @@ class Directory extends Component {
                 <div className="genre-list-title">{genre.genreName}</div>
                 <div className="genre-items">
                     {
-                        genre.bookList.filter((items, idx) => idx <= 5).map(item => (
+                        genre.bookList.filter((items, idx) => idx <= 2).map(item => (
                             <div>
                                 <DirectoryItem bookName={item.bookName} bookImage={item.bookImage} bookAuthor={item.bookAuthor} />
                             </div>
@@ -29,11 +31,15 @@ class Directory extends Component {
 
                         )
                     }
+                    <CustomButton href={genre.genreName}>View More</CustomButton>
                 </div>
             </div>
         )
         return (
-            list
+            <div>
+                <div>{list}</div>
+            </div>
+
         )
     }
 }
