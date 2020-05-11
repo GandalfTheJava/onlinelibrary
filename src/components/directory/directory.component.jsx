@@ -1,106 +1,18 @@
 import React, { Component } from 'react';
 import './directory.styles.scss';
+import books from '../../assets/database';
+
 import DirectoryItem from '../directory-item/directory-item.component';
 class Directory extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            ListOfGenres: [
-                {
-                    genreName: 'Action',
-                    bookList: [{
-                        bookName: 'Book 1',
-                        bookAuthor: 'Author1'
-                    },
-                    {
-                        bookName: 'Book 2',
-                        bookAuthor: 'Author2'
-                    },
-                    {
-                        bookName: 'Book 3',
-                        bookAuthor: 'Author3'
-                    },
-                    {
-                        bookName: 'Book 4',
-                        bookAuthor: 'Author4'
-                    },
-                    {
-                        bookName: 'Book 5',
-                        bookAuthor: 'Author5'
-                    }]
-                },
-                {
-                    genreName: 'Novel',
-                    bookList: [{
-                        bookName: 'Book 1',
-                        bookAuthor: 'Author1'
-                    },
-                    {
-                        bookName: 'Book 2',
-                        bookAuthor: 'Author2'
-                    },
-                    {
-                        bookName: 'Book 3',
-                        bookAuthor: 'Author3'
-                    },
-                    {
-                        bookName: 'Book 4',
-                        bookAuthor: 'Author4'
-                    },
-                    {
-                        bookName: 'Book 5',
-                        bookAuthor: 'Author5'
-                    }]
-                },
-                {
-                    genreName: 'Fantasy',
-                    bookList: [{
-                        bookName: 'Book 1',
-                        bookAuthor: 'Author1'
-                    },
-                    {
-                        bookName: 'Book 2',
-                        bookAuthor: 'Author2'
-                    },
-                    {
-                        bookName: 'Book 3',
-                        bookAuthor: 'Author3'
-                    },
-                    {
-                        bookName: 'Book 4',
-                        bookAuthor: 'Author4'
-                    },
-                    {
-                        bookName: 'Book 5',
-                        bookAuthor: 'Author5'
-                    }]
-                },
-                {
-                    genreName: 'Non-fiction',
-                    bookList: [{
-                        bookName: 'Book 1',
-                        bookAuthor: 'Author1'
-                    },
-                    {
-                        bookName: 'Book 2',
-                        bookAuthor: 'Author2'
-                    },
-                    {
-                        bookName: 'Book 3',
-                        bookAuthor: 'Author3'
-                    },
-                    {
-                        bookName: 'Book 4',
-                        bookAuthor: 'Author4'
-                    },
-                    {
-                        bookName: 'Book 5',
-                        bookAuthor: 'Author5'
-                    }]
-                }
-            ]
+            ListOfGenres: []
         }
+    }
+    componentDidMount() {
+        this.setState({ ListOfGenres: books })
     }
     render() {
         let { ListOfGenres } = this.state;
@@ -109,9 +21,9 @@ class Directory extends Component {
                 <div className="genre-list-title">{genre.genreName}</div>
                 <div className="genre-items">
                     {
-                        genre.bookList.filter((items, idx) => idx < 2).map(item => (
+                        genre.bookList.filter((items, idx) => idx <= 5).map(item => (
                             <div>
-                                <DirectoryItem bookName={item.bookName} bookAuthor={item.bookAuthor} />
+                                <DirectoryItem bookName={item.bookName} bookImage={item.bookImage} bookAuthor={item.bookAuthor} />
                             </div>
                         )
 
