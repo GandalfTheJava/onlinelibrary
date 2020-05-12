@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './directory.styles.scss';
 
-import books from '../../assets/database';
+import books from '../../assets/BooksDatabase/database';
 
 import DirectoryItem from '../directory-item/directory-item.component';
 import CustomButton from "../custom-button/custom-button.component";
@@ -31,7 +31,7 @@ class Directory extends Component {
 
                         )
                     }
-                    <CustomButton href={genre.genreName}>View More</CustomButton>
+                    <CustomButton href={`${genre.genreName}`}>View More</CustomButton>
                 </div>
             </div>
         )
