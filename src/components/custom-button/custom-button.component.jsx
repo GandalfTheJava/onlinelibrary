@@ -2,7 +2,7 @@ import React from 'react';
 import './custom-button.styles.scss';
 
 import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 function CustomButton(props) {
     let { dropdown } = props;
     {
@@ -32,7 +32,7 @@ function CustomButton(props) {
             )
         } else {
             return (
-                <button onClick={props.handleClick}>{props.children}</button>
+                <button href={`/${props.href}/`}> {props.children}</button >
             )
         }
     }
