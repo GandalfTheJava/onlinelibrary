@@ -20,18 +20,21 @@ class Directory extends Component {
         let { ListOfGenres } = this.state;
         let list = ListOfGenres.map(genre =>
             <div className="genre-list-container">
-                <div className="genre-list-title">{genre.genreName}</div>
+                <div className="genre-list-title"> {genre.genreName} </div>
                 <div className="genre-items">
                     {
-                        genre.bookList.filter((items, idx) => idx <= 2).map(item => (
-                            <div>
-                                <DirectoryItem bookName={item.bookName} bookImage={item.bookImage} bookAuthor={item.bookAuthor} />
-                            </div>
-                        )
+                        genre.bookList.filter((items, idx) => idx < 10).map(item =>
+                            (<div>
+                                <DirectoryItem
+                                    bookName={item.bookName}
+                                    bookImage={item.bookImage}
+                                    bookAuthor={item.bookAuthor}
+                                />
+                            </div>)
 
                         )
                     }
-                    <CustomButton href={`${genre.genreName}`}>View More</CustomButton>
+                    {/* <CustomButton href={`${genre.genreName}`}>View More</CustomButton> */}
                 </div>
             </div>
         )
