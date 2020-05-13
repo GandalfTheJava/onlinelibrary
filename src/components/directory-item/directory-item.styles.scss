@@ -1,6 +1,24 @@
+@import "../../Global.scss";
 .item-container{
     text-align: center;
     box-shadow: 3px 3px 5px 6px #ccc;
     margin-top: 15px;
     margin-bottom: 20px;
-}
+
+    &:hover .question-icon{   
+        display: block;
+    }
+    .book-info{
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .book-name{
+        font-weight: bold;
+    }
+    .book-author{
+        font-style: italic;
+    }
+    .question-icon{
+        display: none;
+    }
+} 

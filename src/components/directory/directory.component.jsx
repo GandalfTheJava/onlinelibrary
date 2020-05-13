@@ -5,6 +5,7 @@ import books from '../../assets/BooksDatabase/database';
 
 import DirectoryItem from '../directory-item/directory-item.component';
 import CustomButton from "../custom-button/custom-button.component";
+
 class Directory extends Component {
     constructor(props) {
         super(props)
@@ -29,6 +30,7 @@ class Directory extends Component {
                                     bookName={item.bookName}
                                     bookImage={item.bookImage}
                                     bookAuthor={item.bookAuthor}
+                                    bookDescription={item.bookDescription}
                                 />
                             </div>)
 
