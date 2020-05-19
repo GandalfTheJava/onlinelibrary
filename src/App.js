@@ -2,11 +2,11 @@ import React from 'react';
 import './App.scss';
 import Header from './components/header/header.component';
 import Directory from './components/directory/directory.component';
+import LoginPage from './components/login-page/login-page.component'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <div className="container-wrap">
         <Header />
-        <Router>
-          <Route path="/" component={Directory} />
-          <Route exact path="/signIn" />
-        </Router>
+        <Switch>
+          <Route exact path="/" component={Directory} />
+          <Route path="/login" component={LoginPage} />
+        </Switch>
         <div className="body">
 
         </div>

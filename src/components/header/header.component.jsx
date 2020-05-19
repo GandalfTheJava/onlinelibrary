@@ -9,19 +9,15 @@ import logo from '../../assets/logo.svg';
 function Header() {
     return (
         <div className="header-wrap">
-            <Router>
-                <div className="logo-container">
-                    <Link to="/">
-                        <img src={logo} width="50px" height="50px" alt="logo" />
-                    </Link>
-                </div>
-                <div className="options-container">
-                    <GenreList />
-                    <Link to="/signIn">
-                        <CustomButton >Sign In</CustomButton>
-                    </Link>
-                </div>
-            </Router>
+            <div className="logo-container">
+                <Link to="/">
+                    <img src={logo} width="50px" height="50px" alt="logo" />
+                </Link>
+            </div>
+            <div className="options-container">
+                <GenreList />
+                <CustomButton to="login">Sign In</CustomButton>
+            </div>
         </div>
     )
 }
