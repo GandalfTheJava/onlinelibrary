@@ -7,12 +7,16 @@ class Register extends Component {
 
         this.state = {
             email: "",
-            password: ""
-
+            password: "",
+            firstName: "",
+            lastName: ""
         }
     }
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+    handleClick = () => {
+        console.log(this.state);
     }
     render() {
         let { email, password } = this.state;
@@ -25,7 +29,6 @@ class Register extends Component {
                     placeholder="Email address"
                     onChange={this.handleChange}
                     value={email}
-                    className='container-email'
                 />
                 <FormInput
                     id="password"
@@ -34,8 +37,8 @@ class Register extends Component {
                     placeholder="Password"
                     onChange={this.handleChange}
                     value={password}
-                    className='container-password'
                 />
+                <button type='submit' onClick={this.handleClick}>Submit</button>
             </div>
         )
     }

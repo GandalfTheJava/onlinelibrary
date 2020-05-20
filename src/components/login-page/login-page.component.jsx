@@ -14,6 +14,9 @@ class LoginPage extends Component {
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
+    handleClick = () => {
+        console.log(this.state);
+    }
     render() {
         let { email, password } = this.state;
         return (
@@ -37,6 +40,7 @@ class LoginPage extends Component {
                     className='container-password'
                 />
                 <small><a href="/register">New User?</a></small>
+                <button type='submit' onClick={this.handleClick}>Submit</button>
             </div>
         )
     }
