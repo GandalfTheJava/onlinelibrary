@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FormInput from '../form-input/form-input.component';
 
-class LoginPage extends Component {
+class Register extends Component {
     constructor(props) {
         super(props)
 
@@ -36,10 +36,9 @@ class LoginPage extends Component {
                     value={password}
                     className='container-password'
                 />
-                <small><a href="/register">New User?</a></small>
             </div>
         )
     }
 }
 
-export default LoginPage;
+export default Register;
