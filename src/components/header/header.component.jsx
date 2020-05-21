@@ -1,13 +1,18 @@
 import React from 'react';
 import "../../Global.scss";
 import "./header.styles.scss";
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setUser } from "../../redux/user/userActions";
+
+import { Link } from 'react-router-dom';
 import GenreList from '../GenreList/GenreList';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import logo from '../../assets/logo.svg';
 
-function Header() {
+function Header(props) {
+    console.log(props);
     return (
+
         <div className="header-wrap">
             <div className="logo-container">
                 <Link to="/">
@@ -18,8 +23,14 @@ function Header() {
                 <GenreList />
                 <CustomButton to="login">Sign In</CustomButton>
             </div>
-        </div>
+            <button onClick={() => setUser("this was fired from the app")}>Reducer?</button>
+        </div >
     )
 }
-
-export default Header;
+const mapStateToProps = ({ currentUser }) => {
+    return { user: currentUser }
+};
+const mapDispatchToProps = () => {
+    setUser: setUser();
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

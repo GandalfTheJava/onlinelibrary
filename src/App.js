@@ -6,7 +6,6 @@ import LoginPage from './components/login-page/login-page.component';
 import RegisterPage from './components/register-page/register.component';
 
 import {
-  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -21,12 +20,6 @@ function App() {
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
         </Switch>
-        <div className="body">
-
-        </div>
-        <div className="footer">
-
-        </div>
       </div>
     </div>
   );

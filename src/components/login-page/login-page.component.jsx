@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import FormInput from '../form-input/form-input.component';
+import { signInWithGoogle } from "../../assets/Firebase/firebase";
+import { auth } from '../../assets/Firebase/firebase';
+
 
 class LoginPage extends Component {
     constructor(props) {
@@ -7,7 +10,8 @@ class LoginPage extends Component {
 
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            currentUser: []
 
         }
     }
@@ -15,7 +19,7 @@ class LoginPage extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
     handleClick = () => {
-        console.log(this.state);
+        auth.onAuthStateChanged()
     }
     render() {
         let { email, password } = this.state;
@@ -41,6 +45,7 @@ class LoginPage extends Component {
                 />
                 <small><a href="/register">New User?</a></small>
                 <button type='submit' onClick={this.handleClick}>Submit</button>
+                <button type='submit' onClick={signInWithGoogle}>Sign in with Google</button>
             </div>
         )
     }

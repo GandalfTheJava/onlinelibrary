@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormInput from '../form-input/form-input.component';
+import firebase from 'firebase';
 
 class Register extends Component {
     constructor(props) {
@@ -9,15 +10,22 @@ class Register extends Component {
             email: "",
             password: "",
             firstName: "",
-            lastName: ""
+            lastName: "",
+            username: "",
+            errorMessage: ""
         }
     }
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
     handleClick = () => {
-        console.log(this.state);
+        let { email, password } = this.state;
+
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+            var errorMessage = error.message;
+        });
     }
+
     render() {
         let { email, password } = this.state;
         return (
