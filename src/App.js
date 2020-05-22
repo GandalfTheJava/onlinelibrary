@@ -4,6 +4,7 @@ import Header from './components/header/header.component';
 import Directory from './components/directory/directory.component';
 import LoginPage from './components/login-page/login-page.component';
 import RegisterPage from './components/register-page/register.component';
+import { UserProvider } from './components/provider/user.provider';
 
 import {
   Switch,
@@ -12,16 +13,18 @@ import {
 
 function App() {
   return (
-    <div className="App">
-      <div className="container-wrap">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Directory} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
-        </Switch>
+    <UserProvider>
+      <div className="App">
+        <div className="container-wrap">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Directory} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+          </Switch>
+        </div>
       </div>
-    </div>
+    </UserProvider>
   );
 }
 
