@@ -1,15 +1,15 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useContext } from 'react';
 import "../../Global.scss";
 import "./header.styles.scss";
 import { Link } from 'react-router-dom';
 import GenreList from '../GenreList/GenreList';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import logo from '../../assets/logo.svg';
-import { CurrentUser } from '../provider/user.provider';
+import { UserContext } from '../provider/user.provider';
 
-function Header({ value }) {
-    const currentUser = createContext(CurrentUser);
-    console.log(currentUser)
+function Header() {
+    const currentUser = useContext(UserContext);
+    console.log(currentUser);
     return (
 
         <div className="header-wrap">

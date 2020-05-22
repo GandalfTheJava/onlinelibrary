@@ -1,14 +1,13 @@
 import React, { createContext, useState } from 'react';
 
-export const CurrentUser = createContext();
+export const UserContext = createContext();
 
 
-export let UserProvider = (props) => {
-    const [user, setCurrentUser] = useState([{ name: 'Name', age: 24, logged: true }]);
+export const UserProvider = props => {
+    const [currentUser, setUser] = useState({ name: 'Name', age: 25, logged: true });
     return (
-        <CurrentUser.Provider value={user}>
+        <UserContext.Provider value={currentUser}>
             {props.children}
-        </CurrentUser.Provider>
-    )
+        </UserContext.Provider>
+    );
 };
-
