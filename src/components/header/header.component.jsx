@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import "../../Global.scss";
 import "./header.styles.scss";
 import { Link } from 'react-router-dom';
 import GenreList from '../GenreList/GenreList';

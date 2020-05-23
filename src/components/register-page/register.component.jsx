@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import FormInput from '../form-input/form-input.component';
 import firebase from 'firebase';
-
+import { TextField, Button } from '@material-ui/core';
 class Register extends Component {
     constructor(props) {
         super(props)
@@ -30,23 +29,50 @@ class Register extends Component {
         let { email, password } = this.state;
         return (
             <div className='container-form'>
-                <FormInput
-                    id="email"
+                <div className="container-first-last-name">
+                    <TextField
+                        autoComplete="off"
+                        name="firstName"
+                        label="First Name"
+                        type='text'
+                        onChange={this.handleChange}
+                    />
+                    <TextField
+                        autoComplete="off"
+                        name="secondName"
+                        label="Second Name"
+                        type='text'
+                        onChange={this.handleChange}
+                        value={email}
+                    />
+                </div>
+                <TextField
+                    autoComplete="off"
+                    name="userName"
+                    label="Username"
+                    type='text'
+                    onChange={this.handleChange}
+                    value={email}
+                />
+                <TextField
+                    autoComplete="off"
                     name="email"
+                    label="Email"
                     type='email'
                     placeholder="Email address"
                     onChange={this.handleChange}
                     value={email}
                 />
-                <FormInput
-                    id="password"
+                <TextField
+                    autoComplete="off"
+                    label="Password"
                     name="password"
                     type='password'
                     placeholder="Password"
                     onChange={this.handleChange}
                     value={password}
                 />
-                <button type='submit' onClick={this.handleClick}>Submit</button>
+                <Button type='submit' variant="contained" color="primary" onClick={this.handleClick}>Submit</Button>
             </div>
         )
     }

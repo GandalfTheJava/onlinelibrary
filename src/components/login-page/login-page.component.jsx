@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import FormInput from '../form-input/form-input.component';
+import { Link } from 'react-router-dom';
+import './login-page.styles.scss';
 import { signInWithGoogle } from "../../assets/Firebase/firebase";
 import { auth } from '../../assets/Firebase/firebase';
 
+import { TextField, Button } from '@material-ui/core';
 
 class LoginPage extends Component {
     constructor(props) {
@@ -25,27 +27,24 @@ class LoginPage extends Component {
         let { email, password } = this.state;
         return (
             <div className='container-form'>
-                <FormInput
-                    id="email"
+                <TextField
+                    autoComplete="off"
+                    label="Email"
                     name="email"
                     type='email'
-                    placeholder="Email address"
                     onChange={this.handleChange}
                     value={email}
-                    className='container-email'
                 />
-                <FormInput
-                    id="password"
+                <TextField
+                    label="Password"
                     name="password"
                     type='password'
-                    placeholder="Password"
                     onChange={this.handleChange}
                     value={password}
-                    className='container-password'
                 />
-                <small><a href="/register">New User?</a></small>
-                <button type='submit' onClick={this.handleClick}>Submit</button>
-                <button type='submit' onClick={signInWithGoogle}>Sign in with Google</button>
+                <small><Link to="/register">New User?</Link></small>
+                <Button type='submit' variant="contained" color="primary" onClick={this.handleClick}>Submit</Button>
+                <Button type='submit' variant="contained" color="secondary" onClick={signInWithGoogle}>Sign in with Google</Button>
             </div>
         )
     }
