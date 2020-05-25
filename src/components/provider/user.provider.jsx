@@ -1,12 +1,23 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer } from 'react';
 
-export const UserContext = createContext();
-
-
+export const UserContext = createContext({ user: {} });
+const INT_STATE = {
+    user: {}
+}
+const userReducer = (state = INT_STATE, action) => {
+    switch (action.type) {
+        case 'LOG_IN_USER':
+            return { ...state, user: action.user };
+        case 'LOG_OUT_USER':
+            return { ...state, user: INT_STATE }; //back to initial state
+        default:
+            return;
+    }
+}
 export const UserProvider = props => {
-    const [currentUser, setUser] = useState({ name: 'Name', age: 25, logged: true });
+    const [currentUser, dispatch] = useReducer(userReducer, INT_STATE);
     return (
-        <UserContext.Provider value={currentUser}>
+        <UserContext.Provider value={{ currentUser, dispatch }}>
             {props.children}
         </UserContext.Provider>
     );

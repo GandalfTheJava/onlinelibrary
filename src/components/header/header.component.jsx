@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import "./header.styles.scss";
 import { Link } from 'react-router-dom';
 import GenreList from '../GenreList/GenreList';
@@ -7,10 +7,9 @@ import logo from '../../assets/logo.svg';
 import { UserContext } from '../provider/user.provider';
 
 function Header() {
-    const currentUser = useContext(UserContext);
-    console.log(currentUser);
+    const { currentUser } = useContext(UserContext);
+    const { user } = currentUser;
     return (
-
         <div className="header-wrap">
             <div className="logo-container">
                 <Link to="/">
@@ -18,6 +17,7 @@ function Header() {
                 </Link>
             </div>
             <div className="options-container">
+                {user.logged ? `Welcome ${user.name}` : 'Not Logged in'}
                 <GenreList />
                 <CustomButton to="login">Sign In</CustomButton>
             </div>
