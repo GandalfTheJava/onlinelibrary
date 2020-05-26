@@ -33,7 +33,7 @@ function CustomButton(props) {
         } else {
             return (
                 // <Link to={`/${props.href}/`}> {props.children}</Link >
-                <button><Link to={`${props.to}`}>{props.children}</Link></button>
+                <button onClick={props.onClick}><Link to={`${props.to}`}>{props.children}</Link></button>
             )
         }
     }

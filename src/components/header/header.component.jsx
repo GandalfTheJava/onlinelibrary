@@ -6,9 +6,14 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import logo from '../../assets/logo.svg';
 import { UserContext } from '../provider/user.provider';
 
+import firebase from "../../assets/Firebase/firebase";
+import "firebase/auth";
+const auth = firebase.auth();
+
 function Header() {
-    const { currentUser } = useContext(UserContext);
-    const { user } = currentUser;
+    const { currentUser, dispatch } = useContext(UserContext);
+    let { user } = currentUser;
+    console.log(user);
     return (
         <div className="header-wrap">
             <div className="logo-container">
@@ -19,7 +24,10 @@ function Header() {
             <div className="options-container">
                 {user.logged ? `Welcome ${user.name}` : 'Not Logged in'}
                 <GenreList />
-                <CustomButton to="login">Sign In</CustomButton>
+                {
+                    Object.entries(user).length === 0 ? <CustomButton to='login'>Sign In</CustomButton> :
+                        <CustomButton to='/' onClick={() => { auth.signOut(); dispatch({ type: 'LOG_OUT_USER' }); }}>Sign Out</CustomButton>
+                }
             </div>
         </div >
     )
