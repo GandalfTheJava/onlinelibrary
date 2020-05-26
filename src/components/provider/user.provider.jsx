@@ -5,12 +5,12 @@ const INT_STATE = {
     user: {}
 }
 const userReducer = (state = INT_STATE, action) => {
-    console.log(action.type);
+    console.log(state.user);
     switch (action.type) {
         case 'LOG_IN_USER':
             return { ...state, user: action.payload };
         case 'LOG_OUT_USER':
-            return { ...state, user: INT_STATE }; //back to initial state
+            return { ...state, user: {} }; //back to initial state
         default:
             return;
     }

@@ -2,35 +2,42 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './login-page.styles.scss';
 
-import firebase from "../../assets/Firebase/firebase";
-import "firebase/auth";
-
+import { auth } from '../../assets/Firebase/firebase';
+import { signInWithGoogle } from '../../assets/Firebase/firebase';
 import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../provider/user.provider';
-
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { dispatch } = useContext(UserContext);
-
     useEffect(() => {
         let unSubscribeFromAuth = auth.onAuthStateChanged(user => { //Equivalent to componentDidMount
             //currentUser = user;
         })
-
         // returned function will be called on component unmount 
         return () => {
             unSubscribeFromAuth();
         }
     }, []);
     const handleGoogleSignIn = () => {
-        provider.setCustomParameters({ prompt: 'select_account' });
-        auth.signInWithPopup(provider).then(function (result) {
-
-            dispatch({ type: 'LOG_IN_USER', payload: result.user });
+        signInWithGoogle().then(function (result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            console.log(user);
+            dispatch({ type: 'LOG_IN_USER', payload: user })
+            // ...
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
         });
     }
     const handleSubmit = (e) => {
