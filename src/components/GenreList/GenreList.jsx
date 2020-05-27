@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
 class GenreList extends Component {
@@ -7,7 +6,6 @@ class GenreList extends Component {
         super(props)
 
         this.state = {
-            bookList: [],
             search: ''
         }
     }
