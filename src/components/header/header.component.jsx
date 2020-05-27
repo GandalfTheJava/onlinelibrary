@@ -13,7 +13,7 @@ function Header() {
     const { currentUser, dispatch } = useContext(UserContext);
     let { user } = currentUser;
     useEffect(() => {
-        console.log(user);
+        //console.log(user);
     });
 
     return (

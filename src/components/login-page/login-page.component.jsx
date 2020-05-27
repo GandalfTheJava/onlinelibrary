@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './login-page.styles.scss';
 
-import { auth } from '../../assets/Firebase/firebase';
+import { auth, createUserProfileDocument } from '../../assets/Firebase/firebase';
 import { signInWithGoogle } from '../../assets/Firebase/firebase';
 import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../provider/user.provider';
@@ -12,8 +12,8 @@ function LoginPage() {
     const [password, setPassword] = useState('');
     const { dispatch } = useContext(UserContext);
     useEffect(() => {
-        let unSubscribeFromAuth = auth.onAuthStateChanged(user => { //Equivalent to componentDidMount
-            //currentUser = user;
+        let unSubscribeFromAuth = auth.onAuthStateChanged(async user => { //Equivalent to componentDidMount
+            createUserProfileDocument(user);
         })
         // returned function will be called on component unmount 
         return () => {
@@ -26,9 +26,9 @@ function LoginPage() {
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            console.log(user);
+
             dispatch({ type: 'LOG_IN_USER', payload: user })
-            // ...
+
         }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;

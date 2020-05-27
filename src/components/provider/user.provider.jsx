@@ -5,7 +5,6 @@ const INT_STATE = {
     user: {}
 }
 const userReducer = (state = INT_STATE, action) => {
-    console.log(state.user);
     switch (action.type) {
         case 'LOG_IN_USER':
             return { ...state, user: action.payload };
