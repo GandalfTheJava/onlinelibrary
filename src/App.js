@@ -15,8 +15,8 @@ function App() {
   return (
     <UserProvider>
       <div className="App">
+        <Header />
         <div className="container-wrap">
-          <Header />
           <Switch>
             <Route exact path="/" component={Directory} />
             <Route path="/login" component={LoginPage} />

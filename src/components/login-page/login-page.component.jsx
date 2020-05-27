@@ -55,12 +55,17 @@ function LoginPage() {
     }
     return (
         <div className='container-form'>
-            <form type='submit' onSubmit={handleSubmit}>
+            <form type='submit' onSubmit={handleSubmit} className='login-form'>
+                <div>
+                    <h1>Huddle</h1>
+                </div>
                 <TextField
                     autoComplete="off"
                     label="Email"
                     name="email"
                     type='email'
+                    helperText='We will never share your information'
+                    variant="outlined"
                     onChange={event => setEmail(event.target.value)}
                     value={email}
                 />
@@ -68,14 +73,14 @@ function LoginPage() {
                     label="Password"
                     name="password"
                     type='password'
+                    variant="outlined"
                     onChange={event => setPassword(event.target.value)}
                     value={password}
                 />
-                <Button type='submit' variant="contained" color="primary">Submit</Button>
+                <Button type='submit' variant="contained" color="primary">Log in</Button>
             </form>
-            <small><Link to="/register">New User?</Link></small>
-
             <Button variant="contained" color="secondary" onClick={handleGoogleSignIn}>Sign in with Google</Button>
+            <small><Link to="/register">New User?</Link></small>
         </div >
     )
 }
