@@ -15,7 +15,7 @@ function Header() {
     useEffect(() => {
         //console.log(user);
     });
-
+    console.log(user);
     return (
         <div className="header-wrap">
             <div className="logo-container option">
@@ -23,7 +23,8 @@ function Header() {
                     <img src={logo} width="50px" height="50px" alt="logo" />
                 </Link>
             </div>
-            <div className="options-container">                <GenreList />
+            <div className="options-container">
+                <GenreList />
                 {
                     Object.entries(user).length === 0 ? <CustomButton to='login'>Sign In</CustomButton> :
                         <CustomButton to='/' onClick={() => { auth.signOut(); dispatch({ type: 'LOG_OUT_USER' }); }}>Sign Out</CustomButton>

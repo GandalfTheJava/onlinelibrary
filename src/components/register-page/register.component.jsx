@@ -1,81 +1,69 @@
-import React, { Component } from 'react';
-import firebase from 'firebase';
+import React, { useState } from 'react';
+import { auth, createUserProfileDocument } from '../../assets/Firebase/firebase';
 import { TextField, Button } from '@material-ui/core';
-class Register extends Component {
-    constructor(props) {
-        super(props)
 
-        this.state = {
-            email: "",
-            password: "",
-            firstName: "",
-            lastName: "",
-            username: "",
-            errorMessage: ""
+function Register() {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+        //     var errorMessage = error.message;
+        // });
+        try {
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
+            let displayName = `${firstName} ${lastName}`
+            createUserProfileDocument(user, { displayName })
+
+        } catch (error) {
+            console.log(error);
         }
-    }
-    handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
-    handleClick = () => {
-        let { email, password } = this.state;
 
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            var errorMessage = error.message;
-        });
     }
-
-    render() {
-        let { email, password } = this.state;
-        return (
-            <div className='container-form'>
+    return (
+        <div className='container-form'>
+            <form onSubmit={handleSubmit}>
                 <div className="container-first-last-name">
                     <TextField
                         autoComplete="off"
                         name="firstName"
                         label="First Name"
                         type='text'
-                        onChange={this.handleChange}
+                        value={firstName}
+                        onChange={e => setFirstName(e.target.value)}
                     />
                     <TextField
                         autoComplete="off"
-                        name="secondName"
-                        label="Second Name"
+                        name="lastName"
+                        label="Last Name"
                         type='text'
-                        onChange={this.handleChange}
-                        value={email}
+                        value={lastName}
+                        onChange={e => setLastName(e.target.value)}
                     />
                 </div>
-                <TextField
-                    autoComplete="off"
-                    name="userName"
-                    label="Username"
-                    type='text'
-                    onChange={this.handleChange}
-                    value={email}
-                />
                 <TextField
                     autoComplete="off"
                     name="email"
                     label="Email"
                     type='email'
-                    placeholder="Email address"
-                    onChange={this.handleChange}
                     value={email}
+                    onChange={e => setEmail(e.target.value)}
                 />
                 <TextField
                     autoComplete="off"
                     label="Password"
                     name="password"
                     type='password'
-                    placeholder="Password"
-                    onChange={this.handleChange}
                     value={password}
+                    onChange={e => setPassword(e.target.value)}
                 />
-                <Button type='submit' variant="contained" color="primary" onClick={this.handleClick}>Submit</Button>
-            </div>
-        )
-    }
+                <Button type='submit' variant="contained" color="primary">Submit</Button>
+            </form>
+        </div>
+    )
 }
 
 export default Register;

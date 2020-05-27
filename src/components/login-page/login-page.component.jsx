@@ -13,17 +13,20 @@ function LoginPage() {
     const { dispatch } = useContext(UserContext);
     useEffect(() => {
         let unSubscribeFromAuth = auth.onAuthStateChanged(async user => { //Equivalent to componentDidMount
-            createUserProfileDocument(user);
+            if (user) {
+                const userRef = await createUserProfileDocument(user);
+                userRef.onSnapshot(snapShot => {
+                    dispatch({ type: 'LOG_IN_USER', payload: snapShot.data() });
+                })
+            }
         })
         // returned function will be called on component unmount 
         return () => {
-            unSubscribeFromAuth();
+            unSubscribeFromAuth(); //TODO: ADDRESS THIS ISSUE, does this log out users when login component demounts?
         }
     }, []);
     const handleGoogleSignIn = () => {
         signInWithGoogle().then(function (result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
 
@@ -42,7 +45,7 @@ function LoginPage() {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+        auth().signInWithEmailAndPassword(email, password).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
