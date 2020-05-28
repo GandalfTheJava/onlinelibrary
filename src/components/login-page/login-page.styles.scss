@@ -2,16 +2,12 @@
 @import '../../Global.Colors.scss';
 .container-form{
     width: 50%;
-    @include flexCenter(column);
     border: 2px solid $lightBlue;
     align-items: center;
     justify-content: space-evenly;
-   
     & .login-form{
         @include flexCenter(column);
         align-items: center;
-        justify-content: space-evenly;
         height:40vh;
     }
-    
 }
