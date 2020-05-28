@@ -15,9 +15,9 @@ const userReducer = (state = INT_STATE, action) => {
     }
 }
 export const UserProvider = props => {
-    const [currentUser, dispatch] = useReducer(userReducer, INT_STATE);
+    const [currentUser, setCurrentUser] = useReducer(userReducer, INT_STATE);
     return (
-        <UserContext.Provider value={{ currentUser, dispatch }}>
+        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
             {props.children}
         </UserContext.Provider>
     );

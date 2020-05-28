@@ -24,7 +24,7 @@ class Directory extends Component {
                 <div className="genre-list-title"> {genre.genreName} </div>
                 <div className="genre-items">
                     {
-                        genre.bookList.filter((items, idx) => idx < 10).map(item =>
+                        genre.bookList.filter((items, idx) => idx < 3).map(item =>
                             (<div>
                                 <DirectoryItem
                                     bookName={item.bookName}

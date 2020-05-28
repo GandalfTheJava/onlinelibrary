@@ -10,13 +10,13 @@ import { UserContext } from '../provider/user.provider';
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { dispatch } = useContext(UserContext);
+    const { setCurrentUser } = useContext(UserContext);
     useEffect(() => {
         let unSubscribeFromAuth = auth.onAuthStateChanged(async user => { //Equivalent to componentDidMount
             if (user) {
                 const userRef = await createUserProfileDocument(user);
                 userRef.onSnapshot(snapShot => {
-                    dispatch({ type: 'LOG_IN_USER', payload: snapShot.data() });
+                    setCurrentUser({ type: 'LOG_IN_USER', payload: snapShot.data() });
                 })
             }
         })
@@ -30,7 +30,7 @@ function LoginPage() {
             // The signed-in user info.
             var user = result.user;
 
-            dispatch({ type: 'LOG_IN_USER', payload: user })
+            setCurrentUser({ type: 'LOG_IN_USER', payload: user })
 
         }).catch(function (error) {
             // Handle Errors here.
@@ -51,7 +51,6 @@ function LoginPage() {
             var errorMessage = error.message;
             alert(errorMessage);
         });
-        //dispatch({ type: 'LOG_IN_USER', user: { name: 'Name', logged: true } });
     }
     return (
         <div className='container-form'>
@@ -64,7 +63,7 @@ function LoginPage() {
                     label="Email"
                     name="email"
                     type='email'
-                    helperText='We will never share your information'
+                    helperText='We will never share your email with anyone.'
                     variant="outlined"
                     onChange={event => setEmail(event.target.value)}
                     value={email}

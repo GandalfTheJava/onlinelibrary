@@ -4,19 +4,21 @@ import { auth, createUserProfileDocument } from '../../assets/Firebase/firebase'
 import { UserContext } from '../provider/user.provider';
 import { TextField, Button } from '@material-ui/core';
 import { Form, Col } from 'react-bootstrap';
-function Register() {
+import { useHistory } from 'react-router-dom';
+function Register(props) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { dispatch } = useContext(UserContext);
+    const { setCurrentUser } = useContext(UserContext);
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
             let displayName = `${firstName} ${lastName}`
             createUserProfileDocument(user, { displayName });
-            dispatch({ type: 'LOG_IN_USER', payload: user })
+            setCurrentUser({ type: 'LOG_IN_USER', payload: user });
+            props.history.push('/');
         } catch (error) {
             console.log(error);
         }
