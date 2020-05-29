@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './directory.styles.scss';
-
-import books from '../../assets/BooksDatabase/database';
-
+import { directoryContext } from '../provider/directory.provider';
 import DirectoryItem from '../directory-item/directory-item.component';
-import CustomButton from "../custom-button/custom-button.component";
 
-class Directory extends Component {
-    constructor(props) {
-        super(props)
+function Directory() {
+    let [ListOfGenres, setListOfGenres] = useState();
+    const { directory } = useContext(directoryContext);
 
-        this.state = {
-            ListOfGenres: []
-        }
-    }
-    componentDidMount() {
-        this.setState({ ListOfGenres: books })
-    }
-    render() {
-        let { ListOfGenres } = this.state;
-        let list = ListOfGenres.map(genre =>
+    useEffect(() => {
+        setListOfGenres(directory);
+    });
+    console.log(directory);
+    let list;
+    if (ListOfGenres != null) {
+        list = ListOfGenres.map(genre =>
             <div className="genre-list-container">
                 <div className="genre-list-title"> {genre.genreName} </div>
                 <div className="genre-items">
@@ -36,17 +30,17 @@ class Directory extends Component {
 
                         )
                     }
-                    {/* <CustomButton href={`${genre.genreName}`}>View More</CustomButton> */}
                 </div>
             </div>
         )
-        return (
-            <div>
-                <div>{list}</div>
-            </div>
-
-        )
     }
+    return (
+        <div>
+            <div>{list != null ? list : null}</div>
+        </div >
+
+    )
+
 }
 
 export default Directory;

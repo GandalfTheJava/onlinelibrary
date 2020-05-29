@@ -7,7 +7,7 @@ import { signInWithGoogle } from '../../assets/Firebase/firebase';
 import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../provider/user.provider';
 
-function LoginPage() {
+function LoginPage(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { setCurrentUser } = useContext(UserContext);
@@ -29,18 +29,18 @@ function LoginPage() {
         signInWithGoogle().then(function (result) {
             // The signed-in user info.
             var user = result.user;
-
-            setCurrentUser({ type: 'LOG_IN_USER', payload: user })
+            setCurrentUser({ type: 'LOG_IN_USER', payload: user });
+            props.history.push('/');
 
         }).catch(function (error) {
             // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
+            // var errorCode = error.code;
+            // var errorMessage = error.message;
+            // // The email of the user's account used.
+            // var email = error.email;
+            // // The firebase.auth.AuthCredential type that was used.
+            // var credential = error.credential;
+            // // ...
         });
     }
     const handleSubmit = (e) => {
