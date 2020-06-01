@@ -13,7 +13,7 @@ function Header() {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     let { user } = currentUser;
     useEffect(() => {
-        //console.log(user);
+
     });
     return (
         <div className="header-wrap">
