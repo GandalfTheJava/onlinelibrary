@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './directory.styles.scss';
 import { directoryContext } from '../provider/directory.provider';
 import DirectoryItem from '../directory-item/directory-item.component';
@@ -10,15 +11,16 @@ function Directory() {
     useEffect(() => {
         setListOfGenres(directory);
     });
-    console.log(directory);
     let list;
     if (ListOfGenres != null) {
-        list = ListOfGenres.map(genre =>
+        list = Object.entries(ListOfGenres).map(genre =>
             <div className="genre-list-container">
-                <div className="genre-list-title"> {genre.genreName} </div>
+                <div className="genre-list-title">
+                    <Link to={`/genre/${genre[1].title}`}>{genre[1].title}</Link>
+                </div>
                 <div className="genre-items">
                     {
-                        genre.bookList.filter((items, idx) => idx < 3).map(item =>
+                        genre[1].bookList.filter((items, idx) => idx < 3).map(item =>
                             (<div>
                                 <DirectoryItem
                                     bookName={item.bookName}

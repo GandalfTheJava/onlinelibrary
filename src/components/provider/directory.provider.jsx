@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 import books from '../../assets/BooksDatabase/database';
 
-export const directoryContext = createContext({ directory: {} });
+export const directoryContext = createContext();
 
 const INT_STATE = {
     directory: books
