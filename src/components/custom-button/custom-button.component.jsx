@@ -20,11 +20,10 @@ function CustomButton(props) {
                                 title="Genre List"
                                 onClick={props.handleClick}
                             >
-                                <Dropdown.Item value="Action" href="Action">Action</Dropdown.Item>
-                                <Dropdown.Item value="Novel" href="Novel">Novel</Dropdown.Item>
-                                <Dropdown.Item value="Fantasy" href="Fantasy">Fantasy</Dropdown.Item>
-                                <Dropdown.Item value="Non-fiction" href="Non-fiction">Non-fiction</Dropdown.Item>
-
+                                <Dropdown.Item value="Action"><Link to='genre/Action'>Action</Link></Dropdown.Item>
+                                <Dropdown.Item value="Novel"><Link to='genre/Novel'>Novel</Link></Dropdown.Item>
+                                <Dropdown.Item value="Fantasy"><Link to='genre/Fantasy'>Fantasy</Link></Dropdown.Item>
+                                <Dropdown.Item value="Non-fiction"><Link to='genre/Non-fiction'>Non-fiction</Link></Dropdown.Item>
                             </DropdownType>
                         </>
                     ))}
@@ -32,12 +31,10 @@ function CustomButton(props) {
             )
         } else {
             return (
-                // <Link to={`/${props.href}/`}> {props.children}</Link >
                 <button onClick={props.onClick}><Link to={`${props.to}`}>{props.children}</Link></button>
             )
         }
     }
-
 }
 
 

@@ -1,31 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './directory.styles.scss';
-
-import books from '../../assets/BooksDatabase/database';
-
+import { directoryContext } from '../provider/directory.provider';
 import DirectoryItem from '../directory-item/directory-item.component';
-import CustomButton from "../custom-button/custom-button.component";
 
-class Directory extends Component {
-    constructor(props) {
-        super(props)
+function Directory() {
+    let [ListOfGenres, setListOfGenres] = useState();
+    const { directory } = useContext(directoryContext);
 
-        this.state = {
-            ListOfGenres: []
-        }
-    }
-    componentDidMount() {
-        this.setState({ ListOfGenres: books })
-    }
-    render() {
-        let { ListOfGenres } = this.state;
-        let list = ListOfGenres.map(genre =>
-            <div className="genre-list-container">
-                <div className="genre-list-title"> {genre.genreName} </div>
+    useEffect(() => {
+        setListOfGenres(directory);
+    });
+    let list;
+    if (ListOfGenres != null) {
+        list = Object.entries(ListOfGenres).map(genre =>
+            <div className="genre-list-container" key={genre[0]}>
+                <div className="genre-list-title">
+                    <Link to={`/genre/${genre[1].title}`}>{genre[1].title}</Link>
+                </div>
                 <div className="genre-items">
                     {
-                        genre.bookList.filter((items, idx) => idx < 10).map(item =>
-                            (<div>
+                        genre[1].bookList.filter((items, idx) => idx < 10).map(item =>
+                            (<div key={item.id}>
                                 <DirectoryItem
                                     bookName={item.bookName}
                                     bookImage={item.bookImage}
@@ -33,20 +29,19 @@ class Directory extends Component {
                                     bookDescription={item.bookDescription}
                                 />
                             </div>)
-
                         )
                     }
-                    {/* <CustomButton href={`${genre.genreName}`}>View More</CustomButton> */}
                 </div>
             </div>
         )
-        return (
-            <div>
-                <div>{list}</div>
-            </div>
-
-        )
     }
+    return (
+        <div>
+            <div>{list != null ? list : null}</div>
+        </div >
+
+    )
+
 }
 
 export default Directory;

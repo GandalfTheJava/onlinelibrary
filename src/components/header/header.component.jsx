@@ -10,12 +10,11 @@ import firebase from "../../assets/Firebase/firebase";
 const auth = firebase.auth();
 
 function Header() {
-    const { currentUser, dispatch } = useContext(UserContext);
+    const { currentUser, setCurrentUser } = useContext(UserContext);
     let { user } = currentUser;
     useEffect(() => {
-        //console.log(user);
+
     });
-    console.log(user);
     return (
         <div className="header-wrap">
             <div className="logo-container option">
@@ -27,7 +26,7 @@ function Header() {
                 <GenreList />
                 {
                     Object.entries(user).length === 0 ? <CustomButton to='login'>Sign In</CustomButton> :
-                        <CustomButton to='/' onClick={() => { auth.signOut(); dispatch({ type: 'LOG_OUT_USER' }); }}>Sign Out</CustomButton>
+                        <CustomButton to='/' onClick={() => { auth.signOut(); setCurrentUser({ type: 'LOG_OUT_USER' }); }}>Sign Out</CustomButton>
                 }
             </div>
         </div >

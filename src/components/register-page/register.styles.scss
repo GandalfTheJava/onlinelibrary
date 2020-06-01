@@ -1,0 +1,16 @@
+@import '../../Global.Mixins.scss';
+@import '../../Global.Colors.scss';
+
+.container-register-form{
+    @include flexCenter(column);
+    align-items: center;
+    align-content: center;
+    & .container-first-last-name{
+        @include flexCenter(row);
+        justify-content: space-evenly;
+    }
+    & .container-email-password{
+        align-items: center;
+        align-content: center;
+    }
+}

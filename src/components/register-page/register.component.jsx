@@ -1,65 +1,88 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import './register.styles.scss';
 import { auth, createUserProfileDocument } from '../../assets/Firebase/firebase';
+import { UserContext } from '../provider/user.provider';
 import { TextField, Button } from '@material-ui/core';
-
-function Register() {
+import { Form, Col } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+function Register(props) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const { setCurrentUser } = useContext(UserContext);
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-        //     var errorMessage = error.message;
-        // });
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
             let displayName = `${firstName} ${lastName}`
-            createUserProfileDocument(user, { displayName })
-
+            createUserProfileDocument(user, { displayName });
+            setCurrentUser({ type: 'LOG_IN_USER', payload: user });
+            props.history.push('/');
         } catch (error) {
             console.log(error);
         }
-
     }
     return (
-        <div className='container-form'>
+        <div className='container-register-form'>
             <form onSubmit={handleSubmit}>
-                <div className="container-first-last-name">
-                    <TextField
-                        autoComplete="off"
-                        name="firstName"
-                        label="First Name"
-                        type='text'
-                        value={firstName}
-                        onChange={e => setFirstName(e.target.value)}
-                    />
-                    <TextField
-                        autoComplete="off"
-                        name="lastName"
-                        label="Last Name"
-                        type='text'
-                        value={lastName}
-                        onChange={e => setLastName(e.target.value)}
-                    />
+                <h1>Thank you for choosing Huddle!</h1>
+                <div>
+                    <Form>
+                        <Form.Row>
+                            <Col>
+                                <TextField
+                                    autoComplete="off"
+                                    name="firstName"
+                                    label="First Name"
+                                    type='text'
+                                    variant='outlined'
+                                    required
+                                    value={firstName}
+                                    onChange={e => setFirstName(e.target.value)}
+                                />
+                            </Col>
+                            <Col>
+                                <TextField
+                                    autoComplete="off"
+                                    name="lastName"
+                                    label="Last Name"
+                                    type='text'
+                                    variant='outlined'
+                                    required
+                                    value={lastName}
+                                    onChange={e => setLastName(e.target.value)}
+                                />
+                            </Col>
+                        </Form.Row>
+                        <Form.Row>
+                            <Col>
+                                <TextField
+                                    autoComplete="off"
+                                    name="email"
+                                    label="Email"
+                                    type='email'
+                                    variant='outlined'
+                                    required
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                />
+                            </Col>
+                            <Col>
+                                <TextField
+                                    autoComplete="off"
+                                    label="Password"
+                                    name="password"
+                                    type='password'
+                                    variant='outlined'
+                                    required
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                />
+                            </Col>
+                        </Form.Row>
+                    </Form>
                 </div>
-                <TextField
-                    autoComplete="off"
-                    name="email"
-                    label="Email"
-                    type='email'
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <TextField
-                    autoComplete="off"
-                    label="Password"
-                    name="password"
-                    type='password'
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                />
                 <Button type='submit' variant="contained" color="primary">Submit</Button>
             </form>
         </div>
