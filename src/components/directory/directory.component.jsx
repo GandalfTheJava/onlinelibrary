@@ -14,14 +14,14 @@ function Directory() {
     let list;
     if (ListOfGenres != null) {
         list = Object.entries(ListOfGenres).map(genre =>
-            <div className="genre-list-container">
+            <div className="genre-list-container" key={genre[0]}>
                 <div className="genre-list-title">
                     <Link to={`/genre/${genre[1].title}`}>{genre[1].title}</Link>
                 </div>
                 <div className="genre-items">
                     {
-                        genre[1].bookList.filter((items, idx) => idx < 3).map(item =>
-                            (<div>
+                        genre[1].bookList.filter((items, idx) => idx < 10).map(item =>
+                            (<div key={item.id}>
                                 <DirectoryItem
                                     bookName={item.bookName}
                                     bookImage={item.bookImage}
@@ -29,7 +29,6 @@ function Directory() {
                                     bookDescription={item.bookDescription}
                                 />
                             </div>)
-
                         )
                     }
                 </div>
