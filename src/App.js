@@ -5,6 +5,7 @@ import Directory from './components/directory/directory.component';
 import LoginPage from './components/login-page/login-page.component';
 import RegisterPage from './components/register-page/register.component';
 import Genre from './components/Genre/Genre.component';
+import AlertDemo from './components/alert-demo/alert.component';
 import { UserProvider } from './components/provider/user.provider';
 import { DirectoryProvider } from './components/provider/directory.provider';
 import {
@@ -18,6 +19,7 @@ function App() {
       <DirectoryProvider>
         <div className="App">
           <Header />
+          <AlertDemo />
           <div className="container-wrap">
             <Switch>
               <Route exact path="/" component={Directory} />
