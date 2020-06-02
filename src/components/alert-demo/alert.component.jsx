@@ -6,13 +6,13 @@ function AlertDemo() {
             <Alert variant="success">
                 <Alert.Heading>Hey, Thank you for checking out my project.</Alert.Heading>
                 <p>
-                    Since this project is still in development, there may be slight issues/bugs which may affect performce,
+                    Since this project is still in development, there may be slight issues/bugs which may affect performance,
                     and or the overall feel of the application.
                     
             </p>
                 <hr />
                 <p className="mb-0">
-                    This version is deployed for beta testing and does not represent the final product.
+                    This version is deployed for beta testing purposes only and does not represent the final product.
         </p>
             </Alert>
         </div>
