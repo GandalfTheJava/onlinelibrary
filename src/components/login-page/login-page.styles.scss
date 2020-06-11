@@ -1,13 +1,13 @@
 @import '../../Global.Mixins.scss';
 @import '../../Global.Colors.scss';
-.container-form{
-    width: 50%;
-    border: 2px solid $lightBlue;
+.container-login-form{
+    @include flexCenter(column);
     align-items: center;
-    justify-content: space-evenly;
+    align-content: center;
     & .login-form{
         @include flexCenter(column);
         align-items: center;
-        height:40vh;
+        height:30vh;
     }
+
 }

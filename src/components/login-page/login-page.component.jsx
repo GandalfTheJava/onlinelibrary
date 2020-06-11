@@ -32,15 +32,6 @@ function LoginPage(props) {
             setCurrentUser({ type: 'LOG_IN_USER', payload: user });
             props.history.push('/');
 
-        }).catch(function (error) {
-            // Handle Errors here.
-            // var errorCode = error.code;
-            // var errorMessage = error.message;
-            // // The email of the user's account used.
-            // var email = error.email;
-            // // The firebase.auth.AuthCredential type that was used.
-            // var credential = error.credential;
-            // // ...
         });
     }
     const handleSubmit = (e) => {
@@ -53,7 +44,7 @@ function LoginPage(props) {
         });
     }
     return (
-        <div className='container-form'>
+        <div className='container-login-form'>
             <form type='submit' onSubmit={handleSubmit} className='login-form'>
                 <div>
                     <h1>Huddle</h1>
