@@ -16,7 +16,7 @@ function Directory() {
         list = Object.entries(ListOfGenres).map(genre =>
             <div className="genre-list-container" key={genre[0]}>
                 <div className="genre-list-title">
-                    <Link to={`/genre/${genre[1].title}`}>{genre[1].title}</Link>
+                    <Link to={`/genre/${genre[1].title.toLowerCase()}`}>{genre[1].title}</Link>
                 </div>
                 <div className="genre-items">
                     {
