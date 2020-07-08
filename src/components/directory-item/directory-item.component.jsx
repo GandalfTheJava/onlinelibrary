@@ -17,7 +17,7 @@ function DirectoryItem({ bookName, bookAuthor, bookImage, bookDescription }) {
                 <img src={bookImage} width="160px" height="200px"></img>
                 <div className="book-info">
                     <div className="book-name">{bookName}</div>
-                    <BookModal showModal={showModal} bookTitle={bookName} bookDescription={bookDescription} />
+                    <BookModal showModal={showModal} bookTitle={bookName} bookImage={bookImage} bookDescription={bookDescription} />
                 </div>
                 <div className="book-author">{bookAuthor}</div>
             </div>

@@ -8,7 +8,6 @@ function AlertDemo() {
                 <p>
                     Since this project is still in development, there may be slight issues/bugs which may affect performance,
                     and or the overall feel of the application.
-                    
             </p>
                 <hr />
                 <p className="mb-0">

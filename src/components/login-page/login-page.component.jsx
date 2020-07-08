@@ -31,7 +31,6 @@ function LoginPage(props) {
             var user = result.user;
             setCurrentUser({ type: 'LOG_IN_USER', payload: user });
             props.history.push('/');
-
         });
     }
     const handleSubmit = (e) => {

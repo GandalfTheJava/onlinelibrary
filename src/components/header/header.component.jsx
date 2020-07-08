@@ -12,9 +12,6 @@ const auth = firebase.auth();
 function Header() {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     let { user } = currentUser;
-    useEffect(() => {
-
-    });
     return (
         <div className="header-wrap">
             <div className="logo-container option">

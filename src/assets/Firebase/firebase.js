@@ -15,8 +15,8 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+export const auth = firebase.auth(); //Connect to authentication services
+export const firestore = firebase.firestore(); //Connect to firebase DB services
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
