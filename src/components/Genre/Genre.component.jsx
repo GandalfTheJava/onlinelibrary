@@ -20,13 +20,15 @@ function Genre({ match }) {
         </div>
     );
     return (
-        <div>
+        <div className="title">
+            <h1>{genreid.toUpperCase()} </h1>
             {
-                list != null ? <div className="genre-items-container">
-                    {list}
-                    {list}
-                    {list}
-                </div> : null
+                list != null ?
+                    <div className="genre-items-container">
+                        {list}
+                        {list}
+                        {list}
+                    </div> : null
             }
         </div>
     )
