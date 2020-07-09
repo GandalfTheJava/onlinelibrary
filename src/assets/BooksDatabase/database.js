@@ -147,10 +147,10 @@ const Books = {
         },
         {
             id: 4,
-            bookName: 'Prisoners of Geography',
-            bookAuthor: 'Tim Marshall',
-            bookImage: 'https://m.media-amazon.com/images/I/51stgjdVHqL.jpg',
-            bookDescription: 'In ten chapters and ten maps, Prisoners of Geography looks at the past, present and future to offer an essential insight into one of the major factors that determines world history.'
+            bookName: 'Nine Lives',
+            bookAuthor: 'Aimen Dean',
+            bookImage: 'https://images-na.ssl-images-amazon.com/images/I/51Jw+P-gARL._SX324_BO1,204,203,200_.jpg',
+            bookDescription: 'This is the story of how a young Muslim, determined to defend his faith, found himself fighting on the wrong side – and his fateful decision to work undercover for his sworn enemy.'
         },
         {
             id: 5,
