@@ -20,10 +20,10 @@ function CustomButton(props) {
                                 title="Genre List"
                                 onClick={props.handleClick}
                             >
-                                <Dropdown.Item value="Action"><Link to='genre/Action'>Action</Link></Dropdown.Item>
-                                <Dropdown.Item value="Novel"><Link to='genre/Novel'>Novel</Link></Dropdown.Item>
-                                <Dropdown.Item value="Fantasy"><Link to='genre/Fantasy'>Fantasy</Link></Dropdown.Item>
-                                <Dropdown.Item value="Non-fiction"><Link to='genre/Non-fiction'>Non-fiction</Link></Dropdown.Item>
+                                <Dropdown.Item value="Action"><Link to='/genre/action'>Action</Link></Dropdown.Item>
+                                <Dropdown.Item value="Novel"><Link to='/genre/novel'>Novel</Link></Dropdown.Item>
+                                <Dropdown.Item value="Fantasy"><Link to='/genre/fantasy'>Fantasy</Link></Dropdown.Item>
+                                <Dropdown.Item value="Non-fiction"><Link to='/genre/nonfiction'>Non-fiction</Link></Dropdown.Item>
                             </DropdownType>
                         </>
                     ))}

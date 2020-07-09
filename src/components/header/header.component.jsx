@@ -22,7 +22,7 @@ function Header() {
             <div className="options-container">
                 <GenreList />
                 {
-                    Object.entries(user).length === 0 ? <CustomButton to='login'>Sign In</CustomButton> :
+                    Object.entries(user).length === 0 ? <CustomButton to='/login'>Sign In</CustomButton> :
                         <CustomButton to='/' onClick={() => { auth.signOut(); setCurrentUser({ type: 'LOG_OUT_USER' }); }}>Sign Out</CustomButton>
                 }
             </div>
