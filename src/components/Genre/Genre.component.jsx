@@ -9,7 +9,6 @@ function Genre({ match }) {
     const { directory } = useContext(directoryContext); //Get directory of item
 
     let { bookList } = directory[genreid]; //Get the bookList properties of the selected genre
-    console.log(directory);
     let list = bookList.map(item =>
         <div key={item.id}>
             <div className="genre-item">
