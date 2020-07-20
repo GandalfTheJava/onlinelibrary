@@ -36,7 +36,7 @@ function LoginPage(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-            // Handle Errors here.
+            console.log(error);
             var errorCode = error.code;
             var errorMessage = error.message;
             alert(errorMessage);
