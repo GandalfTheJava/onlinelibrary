@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 
 function BookModal({ showModal, bookTitle, bookDescription, imageURL }) {
-    const [show, setShow] = React.useState(showModal);
+    const [show, setShow] = useState(showModal);
     const handleClose = () => setShow(false);
-
-
     return (
         <div>
             <Modal show={show} onHide={handleClose} animation={true}>
