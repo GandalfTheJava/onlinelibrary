@@ -7,9 +7,9 @@ const INT_STATE = {
 const genreReducer = (state = INT_STATE, action) => {
     switch (action.type) {
         case 'SELECT_GENRE':
-            return { ...state, user: action.payload };
+            return { ...state, genre: action.payload };
         case 'DEFAULT_GENRE':
-            return { ...state, user: {} }; //back to initial state
+            return { ...state, genre: 'default' }; //back to initial state
         default:
             return;
     }
