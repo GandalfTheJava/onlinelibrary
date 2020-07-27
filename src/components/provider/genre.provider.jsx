@@ -15,7 +15,7 @@ const genreReducer = (state = INT_STATE, action) => {
     }
 }
 export const genreProvider = props => {
-    const [currentGenre, setCurrentGenre] = useReducer(genreContext, INT_STATE);
+    const [currentGenre, setCurrentGenre] = genreReducer(genreContext, INT_STATE);
     return (
         <GenreContext.Provider value={{ currentGenre, setCurrentGenre }}>
             {props.children}
