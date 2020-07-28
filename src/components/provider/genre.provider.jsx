@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 
-export const GenreContext = createContext();
+export const genreContext = createContext();
+
 const INT_STATE = {
     genre: 'default'
 }
@@ -14,12 +15,12 @@ const genreReducer = (state = INT_STATE, action) => {
             return;
     }
 }
-export const genreProvider = props => {
-    const [currentGenre, setCurrentGenre] = genreReducer(genreContext, INT_STATE);
+export const GenreProvider = props => {
+    const [currentGenre, setCurrentGenre] = useReducer(genreReducer, INT_STATE);
     return (
-        <GenreContext.Provider value={{ currentGenre, setCurrentGenre }}>
+        <genreContext.Provider value={{ currentGenre, setCurrentGenre }}>
             {props.children}
-        </GenreContext.Provider>
+        </genreContext.Provider>
     );
 };
 

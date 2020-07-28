@@ -2,11 +2,14 @@ import React, { useContext } from 'react';
 import './genre.styles.scss';
 import DirectoryItem from '../directory-item/directory-item.component';
 import { directoryContext } from '../provider/directory.provider';
+import { genreContext } from '../provider/genre.provider';
 import BookModal from '../book-modal/book-modal.component';
 
 function Genre({ match }) {
     const { params: { genreid } } = match;
     const { directory } = useContext(directoryContext); //Get directory of item
+    const { currentGenre } = useContext(genreContext);
+    console.log(currentGenre);
     let { bookList } = directory[genreid]; //Get the bookList properties of the selected genre
     let list = bookList.map(item =>
         <div key={item.id}>
