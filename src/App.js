@@ -8,7 +8,7 @@ import Genre from './components/Genre/Genre.component';
 import AlertDemo from './components/alert-demo/alert.component';
 import { UserProvider } from './components/provider/user.provider';
 import { DirectoryProvider } from './components/provider/directory.provider';
-import { GenreProvider } from './components/provider/genre.provider';
+import { ModalProvider } from './components/provider/modal.provider';
 import {
   Switch,
   Route
@@ -18,7 +18,7 @@ function App() {
   return (
     <UserProvider>
       <DirectoryProvider>
-        <GenreProvider>
+        <ModalProvider>
           <div className="App">
             <Header />
             <AlertDemo />
@@ -31,7 +31,7 @@ function App() {
               </Switch>
             </div>
           </div>
-        </GenreProvider>
+        </ModalProvider>
       </DirectoryProvider>
     </UserProvider >
   );
