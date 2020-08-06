@@ -7,7 +7,7 @@ import DirectoryItem from '../directory-item/directory-item.component';
 function Directory() {
     let [ListOfGenres, setListOfGenres] = useState();
     const { directory } = useContext(directoryContext);
-    console.log(directory);
+    console.log(ListOfGenres);
     useEffect(() => {
         setListOfGenres(directory);
     });
@@ -20,15 +20,17 @@ function Directory() {
                 </div>
                 <div className="genre-items">
                     {
-                        genre[1].bookList.filter((items, idx) => idx < 10).map(item =>
-                            (<div key={item.id}>
-                                <DirectoryItem
-                                    bookName={item.bookName}
-                                    bookImage={item.bookImage}
-                                    bookAuthor={item.bookAuthor}
-                                    bookDescription={item.bookDescription}
-                                />
-                            </div>)
+                        genre[1].bookList.filter((items, idx) => idx < 4).map(item =>
+                            (
+                                <div key={item.id}>
+                                    <DirectoryItem
+                                        bookName={item.bookName}
+                                        bookImage={item.bookImage}
+                                        bookAuthor={item.bookAuthor}
+                                        bookDescription={item.bookDescription}
+                                    />
+                                </div>
+                            )
                         )
                     }
                 </div>

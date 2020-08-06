@@ -7,6 +7,7 @@ import BookModal from '../book-modal/book-modal.component';
 function Genre({ match }) {
     const { params: { genreid } } = match;
     const { directory } = useContext(directoryContext); //Get directory of item
+    let { title } = directory[genreid];
     let { bookList } = directory[genreid]; //Get the bookList properties of the selected genre
     let list = bookList.map(item =>
         <div key={item.id}>
@@ -22,7 +23,7 @@ function Genre({ match }) {
     );
     return (
         <div className="title">
-            <h1>{genreid.toUpperCase()} </h1>
+            <h1>{title.toUpperCase()}</h1>
             {
                 list != null ?
                     <div className="genre-items-container">
