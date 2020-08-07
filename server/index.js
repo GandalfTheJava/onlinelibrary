@@ -15,11 +15,9 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
+    },
+    (error) => {
+        if (error) throw error;
+        console.log("SUCCESSFULLY CONNECTED TO MONGODB");
     });
-mongoose.connection.once('open', function () {
-    console.log('Conection has been made!');
-}).on('error', function (error) {
-    console.log('Error is: ', error);
-});
-
 
