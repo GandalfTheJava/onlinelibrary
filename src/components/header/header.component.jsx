@@ -12,7 +12,6 @@ const auth = firebase.auth();
 function Header() {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     let { user } = currentUser; //Empty object indicates not signed in
-
     function signUserOut() {
         auth.signOut();
         setCurrentUser({ type: 'LOG_OUT_USER' }); //Sets global user object as empty

@@ -1,10 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './login-page.styles.scss';
-
+import { TextField, Button } from '@material-ui/core';
 import { auth, createUserProfileDocument } from '../../assets/Firebase/firebase';
 import { signInWithGoogle } from '../../assets/Firebase/firebase';
-import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../provider/user.provider';
 
 function LoginPage(props) {
@@ -35,12 +34,10 @@ function LoginPage(props) {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-            console.log(error);
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            alert(errorMessage);
+        auth.signInWithEmailAndPassword(email, password).catch(function (error) {
+            alert(error.message);
         });
+        props.history.push('/');
     }
     return (
         <div className='container-login-form'>
