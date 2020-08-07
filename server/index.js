@@ -19,5 +19,7 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
     (error) => {
         if (error) throw error;
         console.log("SUCCESSFULLY CONNECTED TO MONGODB");
-    });
+    }
+);
 
+app.use("/users", require('./Routes/UserRoute'));
