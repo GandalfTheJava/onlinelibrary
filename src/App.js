@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Header from './components/header/header.component';
-import Directory from './components/directory/directory.component';
+import Directory from './components/directory/directory';
 import LoginPage from './components/login-page/login-page.component';
 import RegisterPage from './components/register-page/register.component';
 import Genre from './components/Genre/Genre.component';

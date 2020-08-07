@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import "./header.styles.scss";
 import { Link } from 'react-router-dom';
 import GenreList from '../GenreList/GenreList';
@@ -11,7 +11,12 @@ const auth = firebase.auth();
 
 function Header() {
     const { currentUser, setCurrentUser } = useContext(UserContext);
-    let { user } = currentUser;
+    let { user } = currentUser; //Empty object indicates not signed in
+
+    function signUserOut() {
+        auth.signOut();
+        setCurrentUser({ type: 'LOG_OUT_USER' }); //Sets global user object as empty
+    }
     return (
         <div className="header-wrap">
             <div className="logo-container option">
@@ -22,8 +27,9 @@ function Header() {
             <div className="options-container">
                 <GenreList />
                 {
-                    Object.entries(user).length === 0 ? <CustomButton to='/login'>Sign In</CustomButton> :
-                        <CustomButton to='/' onClick={() => { auth.signOut(); setCurrentUser({ type: 'LOG_OUT_USER' }); }}>Sign Out</CustomButton>
+                    Object.entries(user).length === 0 ? <CustomButton to='/login'>Sign In</CustomButton> //If a user object is not empty
+                        :
+                        <CustomButton to='/' onClick={() => signUserOut()}>Sign Out</CustomButton>
                 }
             </div>
         </div >
