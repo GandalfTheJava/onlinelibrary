@@ -14,7 +14,8 @@ app.listen(PORT, () => console.log(`The server has started on PORT ${PORT}`));
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING,
     {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex: true
     },
     (error) => {
         if (error) throw error;
