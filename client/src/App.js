@@ -1,7 +1,5 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
 import './App.scss';
-
 import Header from './components/header/header.component';
 import Directory from './components/directory/directory';
 import LoginPage from './components/login-page/login-page.component';
@@ -10,6 +8,7 @@ import Genre from './components/Genre/Genre.component';
 import AlertDemo from './components/alert-demo/alert.component';
 import { UserProvider } from './components/provider/user.provider';
 import { DirectoryProvider } from './components/provider/directory.provider';
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
