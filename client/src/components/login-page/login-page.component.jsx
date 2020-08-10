@@ -15,7 +15,6 @@ function LoginPage(props) {
         try {
             const loginResponse = await axios.post('http://localhost:5000/users/login', { email, password });
             setCurrentUser({ type: 'LOG_IN_USER', token: loginResponse.data.token, payload: loginResponse.data.user });
-            console.log(loginResponse.data)
             localStorage.setItem("auth-token", loginResponse.data.token);
             props.history.push('/');
         } catch (error) {

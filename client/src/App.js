@@ -6,31 +6,21 @@ import LoginPage from './components/login-page/login-page.component';
 import RegisterPage from './components/register-page/register.component';
 import Genre from './components/Genre/Genre.component';
 import AlertDemo from './components/alert-demo/alert.component';
-import axios from 'axios';
 import { UserContext } from './components/provider/user.provider';
+import { checkLoggedIn } from './App.util';
 import { Switch, Route } from "react-router-dom";
 
 function App() {
   const { setCurrentUser } = useContext(UserContext);
   useEffect(() => {
-    const checkLoggedIn = async () => { //check to see if a valid jwt token is present in the local storage
-      let token = localStorage.getItem("auth-token");
-      if (token == null) {
-        localStorage.setItem("auth-token", "");
-        token = "";
-        return;
+    const reLogInUser = async () => {
+      const { token, user } = await checkLoggedIn() || {};
+      if (user != null && token != "") { //If we have user information
+        setCurrentUser({ type: 'LOG_IN_USER', token: token, payload: user });
       }
-      const tokenResponse = await axios.post('http://localhost:5000/users/tokenisvalid',
-        null,
-        {
-          headers: { "x-auth-token": token }
-        })
-      if (tokenResponse.data) {
-        const userData = await axios.get('http://localhost:5000/users/', { headers: { "x-auth-token": token } });
-        setCurrentUser({ type: 'LOG_IN_USER', payload: userData.data })
-      };
-    };
-    checkLoggedIn();
+
+    }
+    reLogInUser();
   }, [])
   return (
     <div className="App">
