@@ -15,10 +15,7 @@ function App() {
   useEffect(() => {
     const reLogInUser = async () => {
       const { token, user } = await checkLoggedIn() || {};
-      if (user != null && token != "") { //If we have user information
-        setCurrentUser({ type: 'LOG_IN_USER', token: token, payload: user });
-      }
-
+      if (user != null && token != "") setCurrentUser({ type: 'LOG_IN_USER', token: token, payload: user });
     }
     reLogInUser();
   }, [])

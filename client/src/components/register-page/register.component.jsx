@@ -3,7 +3,7 @@ import './register.styles.scss';
 import { UserContext } from '../provider/user.provider';
 import { TextField, Button } from '@material-ui/core';
 import { Form, Col } from 'react-bootstrap';
-import axios from 'axios';
+import { registerUser } from './register.utils';
 function Register(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,17 +13,9 @@ function Register(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const newUser = { email, password, passwordCheck, displayName };
-            await axios.post('http://localhost:5000/users/register', newUser);
-            const loginResponse = await axios.post('http://localhost:5000/users/login', { email, password });
-            setCurrentUser({ type: 'LOG_IN_USER', token: loginResponse.data.token, payload: loginResponse.data.user });
-            console.log(loginResponse.data)
-            localStorage.setItem("auth-token", loginResponse.data.token);
-            props.history.push('/');
-        } catch (err) {
-            console.log(err);
-        }
+        let response = await registerUser(email, password, passwordCheck, displayName);
+        setCurrentUser({ type: 'LOG_IN_USER', token: response.data.token, payload: response.data.user });
+        props.history.push('/');
     }
     return (
         <div className='container-register-form'>

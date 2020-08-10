@@ -13,22 +13,17 @@ router.post("/register", async (req, res) => {
         }
 
         if (password.length < 6) {
-            console.log("error 2");
             return res.status(400).json({ message: "Password must be at least 6 characters long" });
         }
 
         if (password !== passwordCheck) {
-            console.log("error 3");
             return res.status(400).json({ message: "Passwords do not match" });
         }
 
         const existingUser = await User.findOne({ email: email });
         if (existingUser) {
-            console.log("error 4");
             return res.status(400).json({ message: "Account with that email already exists" });
         }
-
-        console.log(req.body);
         if (!displayName) displayName = email;
 
         const salt = await bcrypt.genSalt();

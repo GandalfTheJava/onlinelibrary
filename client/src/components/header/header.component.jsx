@@ -5,13 +5,15 @@ import GenreList from '../GenreList/GenreList';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import logo from '../../assets/logo.svg';
 import { UserContext } from '../provider/user.provider';
+import { setLocalStorage } from '../../App.util';
 
 
 function Header() {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     let { user } = currentUser; //Empty object indicates not signed in
-    function signUserOut() {
-        localStorage.setItem("auth-token", "");
+
+    const signUserOut = () => {
+        setLocalStorage(null);
         setCurrentUser({ type: 'LOG_OUT_USER' }); //Sets global user object as empty
     }
     return (

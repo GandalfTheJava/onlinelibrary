@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './login-page.styles.scss';
 import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../provider/user.provider';
+import { setLocalStorage, loginUser } from '../../App.util';
 
 function LoginPage(props) {
     const [email, setEmail] = useState('');
@@ -13,9 +14,9 @@ function LoginPage(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const loginResponse = await axios.post('http://localhost:5000/users/login', { email, password });
+            const loginResponse = await loginUser(email, password);
             setCurrentUser({ type: 'LOG_IN_USER', token: loginResponse.data.token, payload: loginResponse.data.user });
-            localStorage.setItem("auth-token", loginResponse.data.token);
+            setLocalStorage(loginResponse.data.token);
             props.history.push('/');
         } catch (error) {
             console.log(error);
