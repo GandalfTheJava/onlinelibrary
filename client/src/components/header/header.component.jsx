@@ -13,7 +13,7 @@ function Header() {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     let { user } = currentUser; //Empty object indicates not signed in
     function signUserOut() {
-        auth.signOut();
+        localStorage.setItem("auth-token", "");
         setCurrentUser({ type: 'LOG_OUT_USER' }); //Sets global user object as empty
     }
     return (

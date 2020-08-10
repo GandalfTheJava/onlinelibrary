@@ -13,18 +13,22 @@ router.post("/register", async (req, res) => {
         }
 
         if (password.length < 6) {
+            console.log("error 2");
             return res.status(400).json({ message: "Password must be at least 6 characters long" });
         }
 
         if (password !== passwordCheck) {
+            console.log("error 3");
             return res.status(400).json({ message: "Passwords do not match" });
         }
 
         const existingUser = await User.findOne({ email: email });
         if (existingUser) {
+            console.log("error 4");
             return res.status(400).json({ message: "Account with that email already exists" });
         }
 
+        console.log(req.body);
         if (!displayName) displayName = email;
 
         const salt = await bcrypt.genSalt();
@@ -38,7 +42,6 @@ router.post("/register", async (req, res) => {
 
         const savedUser = await createNewUser.save();
         res.json(savedUser);
-
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -47,17 +50,14 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
-
         if (!email || !password) {
             return res.status(400).json({ message: "Please complete all fields." });
         }
-
         const user = await User.findOne({ email: email });
 
         if (!user) {
             return res.status(400).json({ message: "No account with this email." });
         }
-
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) { return res.status(400).json({ message: "Invalid Credentials." }); }
@@ -102,5 +102,13 @@ router.post("/tokenisvalid", async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+router.get("/", auth, async (req, res) => { //Get data about the current logged in user
+    const user = await User.findById(req.user);
+    res.json({
+        displayName: user.displayName,
+        id: user._id,
+    });
 });
 module.exports = router;

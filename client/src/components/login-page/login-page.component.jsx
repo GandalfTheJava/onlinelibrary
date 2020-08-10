@@ -10,14 +10,14 @@ function LoginPage(props) {
     const [password, setPassword] = useState('');
     const { setCurrentUser } = useContext(UserContext);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const user = {
-            email: email,
-            password: password
+            email: "deleted@gmail.com",
+            password: "passwords"
         }
-        // axios.post('https://localhost:5000/login').then((response) => console.log(response))
-        // props.history.push('/');
+        const response = await axios.post('https://localhost:5000/users/login', { email: user.email, password: user.password });
+        console.log(response);
     }
     return (
         <div className='container-login-form'>

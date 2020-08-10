@@ -1,26 +1,28 @@
 import React, { useState, useContext } from 'react';
 import './register.styles.scss';
-import { auth, createUserProfileDocument } from '../../assets/Firebase/firebase';
 import { UserContext } from '../provider/user.provider';
 import { TextField, Button } from '@material-ui/core';
 import { Form, Col } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 function Register(props) {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordCheck, setPasswordCheck] = useState('');
+    const [displayName, setDisplayName] = useState('');
     const { setCurrentUser } = useContext(UserContext);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { user } = await auth.createUserWithEmailAndPassword(email, password);
-            let displayName = `${firstName} ${lastName}`
-            createUserProfileDocument(user, { displayName });
-            setCurrentUser({ type: 'LOG_IN_USER', payload: user });
+            const newUser = { email, password, passwordCheck, displayName };
+            await axios.post('http://localhost:5000/users/register', newUser);
+            const loginResponse = await axios.post('http://localhost:5000/users/login', { email, password });
+            console.log(loginResponse);
+            setCurrentUser({ type: 'LOG_IN_USER', token: loginResponse.data.token, payload: loginResponse.data.user });
+            localStorage.setItem("auth-token", loginResponse.data.token);
             props.history.push('/');
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.log(err);
         }
     }
     return (
@@ -29,32 +31,6 @@ function Register(props) {
                 <h1>Thank you for choosing Huddle!</h1>
                 <div>
                     <Form>
-                        <Form.Row>
-                            <Col>
-                                <TextField
-                                    autoComplete="off"
-                                    name="firstName"
-                                    label="First Name"
-                                    type='text'
-                                    variant='outlined'
-                                    required
-                                    value={firstName}
-                                    onChange={e => setFirstName(e.target.value)}
-                                />
-                            </Col>
-                            <Col>
-                                <TextField
-                                    autoComplete="off"
-                                    name="lastName"
-                                    label="Last Name"
-                                    type='text'
-                                    variant='outlined'
-                                    required
-                                    value={lastName}
-                                    onChange={e => setLastName(e.target.value)}
-                                />
-                            </Col>
-                        </Form.Row>
                         <Form.Row>
                             <Col>
                                 <TextField
@@ -71,8 +47,33 @@ function Register(props) {
                             <Col>
                                 <TextField
                                     autoComplete="off"
-                                    label="Password"
+                                    label="Display Name"
+                                    name="displayName"
+                                    type='displayName'
+                                    variant='outlined'
+                                    value={displayName}
+                                    onChange={e => setDisplayName(e.target.value)}
+                                />
+                            </Col>
+                        </Form.Row>
+                        <Form.Row>
+                            <Col>
+                                <TextField
+                                    autoComplete="off"
+                                    name="checkPassword"
+                                    label="Confirm Password"
+                                    type='password'
+                                    variant='outlined'
+                                    required
+                                    value={passwordCheck}
+                                    onChange={e => setPasswordCheck(e.target.value)}
+                                />
+                            </Col>
+                            <Col>
+                                <TextField
+                                    autoComplete="off"
                                     name="password"
+                                    label="Password"
                                     type='password'
                                     variant='outlined'
                                     required
