@@ -6,8 +6,6 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import logo from '../../assets/logo.svg';
 import { UserContext } from '../provider/user.provider';
 
-import firebase from "../../assets/Firebase/firebase";
-const auth = firebase.auth();
 
 function Header() {
     const { currentUser, setCurrentUser } = useContext(UserContext);

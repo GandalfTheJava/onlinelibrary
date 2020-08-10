@@ -12,12 +12,15 @@ function LoginPage(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const user = {
-            email: "deleted@gmail.com",
-            password: "passwords"
+        try {
+            const loginResponse = await axios.post('http://localhost:5000/users/login', { email, password });
+            setCurrentUser({ type: 'LOG_IN_USER', token: loginResponse.data.token, payload: loginResponse.data.user });
+            console.log(loginResponse.data)
+            localStorage.setItem("auth-token", loginResponse.data.token);
+            props.history.push('/');
+        } catch (error) {
+            console.log(error);
         }
-        const response = await axios.post('https://localhost:5000/users/login', { email: user.email, password: user.password });
-        console.log(response);
     }
     return (
         <div className='container-login-form'>

@@ -17,8 +17,8 @@ function Register(props) {
             const newUser = { email, password, passwordCheck, displayName };
             await axios.post('http://localhost:5000/users/register', newUser);
             const loginResponse = await axios.post('http://localhost:5000/users/login', { email, password });
-            console.log(loginResponse);
             setCurrentUser({ type: 'LOG_IN_USER', token: loginResponse.data.token, payload: loginResponse.data.user });
+            console.log(loginResponse.data)
             localStorage.setItem("auth-token", loginResponse.data.token);
             props.history.push('/');
         } catch (err) {
