@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './directory-item.styles.scss';
-import { FaQuestionCircle } from 'react-icons/fa';
-
 import BookModal from '../book-modal/book-modal.component';
 
 
@@ -12,7 +10,7 @@ function DirectoryItem({ bookName, bookAuthor, bookImage, bookDescription }) {
                 <BookModal bookName={bookName} bookAuthor={bookAuthor} bookImage={bookImage} bookDescription={bookDescription} />
             </div>
             <div>
-                <img src={bookImage} width="160px" height="200px"></img>
+                <img src={bookImage} width="160px" height="200px" alt='book'></img>
                 <div className="book-info">
                     <div className="book-name">{bookName}</div>
                 </div>

@@ -25,7 +25,7 @@ function Header(props) {
             <div className="options-container">
                 <GenreDropdown history={props.history} />
                 {
-                    Object.entries(user).length === 0 ?
+                    Object.entries(user).length === 0 && user !== null ?
                         <Button variant="contained"><Link to={`/login`}>Sign In</Link></Button>//If a user object is empty
                         :
                         <Button variant="contained" onClick={() => signUserOut()}>Sign Out</Button>

@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { FaQuestionCircle } from 'react-icons/fa';
-
+import Fab from '@material-ui/core/Fab';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 const useStyles = makeStyles((theme) => ({
     modal: {
         display: 'flex',
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
     },
 }));
-
 export default function BookModal({ bookName, bookAuthor, bookImage, bookDescription }) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -28,7 +27,7 @@ export default function BookModal({ bookName, bookAuthor, bookImage, bookDescrip
     const handleClose = () => setOpen(false);
     return (
         <div>
-            <button type="button" onClick={handleOpen}></button>
+            <Fab size="small" onClick={handleOpen}> <VisibilityIcon /> </Fab>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -44,7 +43,7 @@ export default function BookModal({ bookName, bookAuthor, bookImage, bookDescrip
                 <Fade in={open}>
                     <div className={classes.paper}>
                         <h2 id="transition-modal-title">{bookName}</h2>
-                        <img src={bookImage} style={{ width: '300px', height: '450px' }} />
+                        <img src={bookImage} style={{ width: '300px', height: '450px' }} alt='book' />
                         <p id="transition-modal-description">{bookDescription}</p>
                         <p id="transition-modal-description">{bookAuthor}</p>
                     </div>

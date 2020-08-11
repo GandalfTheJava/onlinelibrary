@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import './genre.styles.scss';
 import DirectoryItem from '../directory-item/directory-item.component';
 import { directoryContext } from '../provider/directory.provider';
-import BookModal from '../book-modal/book-modal.component';
 
 function Genre({ match }) {
     const { params: { genreid } } = match;
