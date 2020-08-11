@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
 import "./header.styles.scss";
 import { Link } from 'react-router-dom';
-import GenreList from '../GenreList/GenreList';
-import CustomButton from '../../components/custom-button/custom-button.component';
+import GenreDropdown from '../GenreDropdown/GenreDropdown';
+import Button from '@material-ui/core/Button';
 import logo from '../../assets/logo.svg';
 import { UserContext } from '../provider/user.provider';
 import { setLocalStorage } from '../../App.util';
 
 
-function Header() {
+function Header(props) {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     let { user } = currentUser; //Empty object indicates not signed in
-
     const signUserOut = () => {
         setLocalStorage(null);
         setCurrentUser({ type: 'LOG_OUT_USER' }); //Sets global user object as empty
@@ -24,11 +23,12 @@ function Header() {
                 </Link>
             </div>
             <div className="options-container">
-                <GenreList />
+                <GenreDropdown history={props.history} />
                 {
-                    Object.entries(user).length === 0 ? <CustomButton to='/login'>Sign In</CustomButton> //If a user object is not empty
+                    Object.entries(user).length === 0 ?
+                        <Button variant="contained"><Link to={`/login`}>Sign In</Link></Button>//If a user object is empty
                         :
-                        <CustomButton to='/' onClick={() => signUserOut()}>Sign Out</CustomButton>
+                        <Button variant="contained" onClick={() => signUserOut()}>Sign Out</Button>
                 }
             </div>
         </div >

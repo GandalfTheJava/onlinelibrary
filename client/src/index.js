@@ -6,14 +6,14 @@ import './App.scss';
 import { UserProvider } from './components/provider/user.provider';
 import { DirectoryProvider } from './components/provider/directory.provider';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <UserProvider>
         <DirectoryProvider>
-          <App />
+          <Route path="/" component={App} />
         </DirectoryProvider>
       </UserProvider >
     </Router>

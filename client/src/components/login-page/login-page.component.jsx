@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './login-page.styles.scss';
 import { TextField, Button } from '@material-ui/core';

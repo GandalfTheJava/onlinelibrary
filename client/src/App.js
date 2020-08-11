@@ -19,12 +19,11 @@ function App() {
       if (user != null && token != "") setCurrentUser({ type: 'LOG_IN_USER', token: token, payload: user });
     }
     reLogInUser();
-  }, [])
+  }, [setCurrentUser])
   return (
     <div className="App">
-      <Header />
-      <AlertDemo />
       <div className="container-wrap">
+        <Route path="/" component={Header} />
         <Switch>
           <Route exact path="/" component={Directory} />
           <Route path="/genre/:genreid/" component={Genre} />

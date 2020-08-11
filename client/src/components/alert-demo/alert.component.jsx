@@ -3,7 +3,7 @@ import { Alert } from 'react-bootstrap';
 function AlertDemo() {
     return (
         <div>
-            <Alert variant="success">
+            <Alert variant="info">
                 <Alert.Heading>Hello, Thank you for checking out my project.</Alert.Heading>
                 <p>
                     Since this project is still in development, there may be slight issues/bugs which may affect performance,

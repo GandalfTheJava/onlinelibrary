@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "firebase": "^7.17.2",
+    "material-ui-popup-state": "^1.6.1",
     "npm-check": "^5.9.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
