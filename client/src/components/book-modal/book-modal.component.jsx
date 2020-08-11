@@ -1,27 +1,55 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import { FaQuestionCircle } from 'react-icons/fa';
 
+const useStyles = makeStyles((theme) => ({
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    paper: {
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+}));
 
-function BookModal({ showModal, bookTitle, bookDescription, imageURL }) {
-    const [show, setShow] = useState(showModal);
-    const handleClose = () => setShow(false);
+export default function BookModal({ bookName, bookAuthor, bookImage, bookDescription }) {
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => setOpen(true);
+
+    const handleClose = () => setOpen(false);
     return (
         <div>
-            <Modal show={show} onHide={handleClose} animation={true}>
-                <Modal.Header closeButton> <Modal.Title>{bookTitle}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{bookDescription}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Rating
-                    </Button>
-                </Modal.Footer>
+            <button type="button" onClick={handleOpen}></button>
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                    <div className={classes.paper}>
+                        <h2 id="transition-modal-title">{bookName}</h2>
+                        <img src={bookImage} style={{ width: '300px', height: '450px' }} />
+                        <p id="transition-modal-description">{bookDescription}</p>
+                        <p id="transition-modal-description">{bookAuthor}</p>
+                    </div>
+                </Fade>
             </Modal>
         </div>
-    )
+    );
 }
-
-export default BookModal;
