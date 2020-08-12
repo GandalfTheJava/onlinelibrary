@@ -31,7 +31,6 @@ function LoginPage(props) {
                 </div>
                 <form type='submit' onSubmit={handleSubmit} className='login-form'>
                     <div className='input-container'>
-                        <span className='input-title'>Email</span>
                         <TextField
                             autoComplete="off"
                             label="Email"
@@ -43,7 +42,6 @@ function LoginPage(props) {
                         />
                     </div>
                     <div className='input-container'>
-                        <span className='input-title'>Password</span>
                         <TextField
                             label="Password"
                             name="password"

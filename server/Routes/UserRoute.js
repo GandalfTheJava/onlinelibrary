@@ -8,7 +8,7 @@ const auth = require('../middleware/auth');
 router.post("/register", async (req, res) => {
     try {
         let { email, password, passwordCheck, displayName } = req.body;
-        if (!email || !password || !passwordCheck) {
+        if (!email || !password || !passwordCheck || !displayName) {
             return res.status(400).json({ message: "Please Complete All Fields" });
         }
 
@@ -20,11 +20,15 @@ router.post("/register", async (req, res) => {
             return res.status(400).json({ message: "Passwords do not match" });
         }
 
-        const existingUser = await User.findOne({ email: email });
-        if (existingUser) {
+        const existingEmail = await User.findOne({ email: email });
+        if (existingEmail) {
             return res.status(400).json({ message: "Account with that email already exists" });
         }
-        if (!displayName) displayName = email;
+
+        const existingDisplayName = await User.findOne({ displayName: displayName });
+        if (existingDisplayName) {
+            return res.status(400).json({ message: "Account with that displayName already exists" });
+        }
 
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password, salt);
