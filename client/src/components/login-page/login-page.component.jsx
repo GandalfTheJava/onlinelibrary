@@ -56,16 +56,21 @@ function LoginPage(props) {
                     <div className='input-container'>
                         <Button className='log-in-button' fullWidth={true} type='submit' variant="contained" color="primary">Submit</Button>
                     </div>
-                </form>
-                <div>
-                    <div>
+                    <div className='option-container'>
                         <FormControlLabel
                             control={<Checkbox name="checkedG" />}
                             label="Remember Me"
                         />
                         <small><Link to="/register">New User?</Link></small>
                     </div>
-                </div>
+                    <div>
+                        <small>
+                            THIS IS A <b> DEMO APPLICATION.</b>
+                            <br />
+                            PLEASE <b>DO NOT USE </b> SENSITIVE INFORMATION.
+                        </small>
+                    </div>
+                </form>
             </div>
         </div >
     )
