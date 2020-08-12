@@ -7,7 +7,7 @@ const auth = require('../middleware/auth');
 
 router.post("/register", async (req, res) => {
     try {
-        let { email, password, passwordCheck, displayName } = req.body;
+        let { email, password, passwordCheck, displayName, admin } = req.body;
         if (!email || !password || !passwordCheck || !displayName) {
             return res.status(400).json({ message: "Please Complete All Fields" });
         }
@@ -36,7 +36,8 @@ router.post("/register", async (req, res) => {
         const createNewUser = new User({
             email,
             password: passwordHash,
-            displayName
+            displayName,
+            booksBorrowed: 0
         });
 
         const savedUser = await createNewUser.save();

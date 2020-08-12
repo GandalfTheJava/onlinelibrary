@@ -52,7 +52,7 @@ function LoginPage(props) {
                         />
                     </div>
                     <div className='input-container'>
-                        <Button className='log-in-button' fullWidth={true} type='submit' variant="contained" color="primary">Submit</Button>
+                        <Button className='submit-button' fullWidth={true} type='submit' variant="contained" color="primary">Submit</Button>
                     </div>
                     <div className='option-container'>
                         <FormControlLabel
@@ -61,14 +61,14 @@ function LoginPage(props) {
                         />
                         <small><Link to="/register">New User?</Link></small>
                     </div>
-                    <div>
-                        <small>
-                            THIS IS A <b> DEMO APPLICATION.</b>
-                            <br />
+                </form>
+                <div className='warning'>
+                    <small>
+                        THIS IS A <b> DEMO APPLICATION.</b>
+                        <br />
                             PLEASE <b>DO NOT USE </b> SENSITIVE INFORMATION.
                         </small>
-                    </div>
-                </form>
+                </div>
             </div>
         </div >
     )

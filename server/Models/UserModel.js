@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    admin: {
-        type: Boolean,
+    booksBorrowed: {
+        type: Number,
         required: true
     }
 });

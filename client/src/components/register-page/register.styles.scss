@@ -1,16 +1,56 @@
 @import '../../Global.Mixins.scss';
 @import '../../Global.Colors.scss';
 
-.container-register-form{
-    @include flexCenter(column);
+.container-register{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    align-content: center;
-    & .container-first-last-name{
-        @include flexCenter(row);
-        justify-content: space-evenly;
+    padding: 15px;
+    background-color: #ebeeef;
+    width: 100%;
+    min-height: 100vh;
+
+    .container-register-wrap{
+        width: 670px;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
     }
-    & .container-email-password{
-        align-items: center;
+    .container-register-title{
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 35px;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 1.2;
+        font-family: Poppins-Bold;
+        background-size: cover;
+        background-position: center;
+        padding: 70px 15px 74px 15px;
+        background-image: url('https://images.unsplash.com/photo-1530819568329-97653eafbbfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1346&q=80');
+    }
+    .register-form{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
         align-content: center;
+        padding: 20px;
+
+        .register-input{
+            width:100%;
+            
+           .submit-button{
+                margin-top: 15px;
+            }
+        }
+    }  
+    .warning{
+        text-align: center;
     }
+    
 }
