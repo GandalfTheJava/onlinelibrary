@@ -5,7 +5,9 @@ import Directory from './components/directory/directory';
 import LoginPage from './components/login-page/login-page.component';
 import RegisterPage from './components/register-page/register.component';
 import Genre from './components/Genre/Genre.component';
-import AlertDemo from './components/alert-demo/alert.component';
+
+//import AlertDemo from './components/alert-demo/alert.component';
+
 import { UserContext } from './components/provider/user.provider';
 import { checkLoggedIn } from './App.util';
 import { Switch, Route } from "react-router-dom";
@@ -22,12 +24,11 @@ function App() {
   return (
     <div className="App">
       <div className="container-wrap">
-        <Route path="/" component={Header} />
-        <AlertDemo />
+        {/* <Route path="/" component={Header} /> */}
         <Switch>
-          <Route exact path="/" component={Directory} />
+          <Route exact path="/" component={LoginPage} />
           <Route path="/genre/:genreid/" component={Genre} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={Directory} />
           <Route path="/register" component={RegisterPage} />
         </Switch>
       </div>

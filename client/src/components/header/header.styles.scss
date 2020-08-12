@@ -8,6 +8,12 @@
     margin: 10px 10px;
     background-color: $cyber;
 }
+.logo-container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
 .options-container{
     display: flex;
     flex-direction: row;

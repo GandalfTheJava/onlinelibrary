@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './login-page.styles.scss';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../provider/user.provider';
 import { setLocalStorage, loginUser } from '../../App.util';
@@ -22,33 +24,48 @@ function LoginPage(props) {
         }
     }
     return (
-        <div className='container-login-form'>
-            <div className='other'>
+        <div className='container-login'>
+            <div className='container-login-wrap'>
+                <div className='container-login-title'>
+                    <span>Log in</span>
+                </div>
                 <form type='submit' onSubmit={handleSubmit} className='login-form'>
-                    <div>
-                        <h1>Huddle</h1>
+                    <div className='input-container'>
+                        <span className='input-title'>Email</span>
+                        <TextField
+                            autoComplete="off"
+                            label="Email"
+                            name="email"
+                            type="email"
+                            onChange={event => setEmail(event.target.value)}
+                            value={email}
+                            fullWidth={true}
+                        />
                     </div>
-                    <TextField
-                        autoComplete="off"
-                        label="Email"
-                        name="email"
-                        type='email'
-                        helperText='We will never share your email with anyone.'
-                        variant="outlined"
-                        onChange={event => setEmail(event.target.value)}
-                        value={email}
-                    />
-                    <TextField
-                        label="Password"
-                        name="password"
-                        type='password'
-                        variant="outlined"
-                        onChange={event => setPassword(event.target.value)}
-                        value={password}
-                    />
-                    <Button type='submit' variant="contained" color="primary">Log in</Button>
+                    <div className='input-container'>
+                        <span className='input-title'>Password</span>
+                        <TextField
+                            label="Password"
+                            name="password"
+                            type='password'
+                            onChange={event => setPassword(event.target.value)}
+                            value={password}
+                            fullWidth={true}
+                        />
+                    </div>
+                    <div className='input-container'>
+                        <Button className='log-in-button' fullWidth={true} type='submit' variant="contained" color="primary">Submit</Button>
+                    </div>
                 </form>
-                <small><Link to="/register">New User?</Link></small>
+                <div>
+                    <div>
+                        <FormControlLabel
+                            control={<Checkbox name="checkedG" />}
+                            label="Remember Me"
+                        />
+                        <small><Link to="/register">New User?</Link></small>
+                    </div>
+                </div>
             </div>
         </div >
     )

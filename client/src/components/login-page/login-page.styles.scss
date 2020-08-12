@@ -1,21 +1,76 @@
 @import '../../Global.Mixins.scss';
 @import '../../Global.Colors.scss';
-.container-login-form{
-    @include flexCenter(column);
+.container-login{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    align-content: center;
-    .other{
-        @include flexCenter(column);
-        align-items: center;
+    padding: 15px;
+    background-color: #ebeeef;
+    width: 100%;
+    min-height: 100vh;
+
+    .container-login-wrap{    
+        width: 670px;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+    .container-login-title{
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 35px;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 1.2;
+        font-family: Poppins-Bold;
+        background-size: cover;
+        background-position: center;
+        padding: 70px 15px 74px 15px;
+        background-image: url('../../assets/images/landing-page-library.jpg');
+    }
+    .login-form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        flex-direction: column;
+        align-items: flex-start;
         align-content: center;
-        width: 35%;
-        height:400px;
-        border: 2px solid rgb(77, 77, 131);
-        & .login-form{
-            @include flexCenter(column);
+        padding: 50px;
+        
+        .input-container{
+            display: flex;
+            flex-direction: row;
             align-items: center;
-            height:30vh;
+            width:70%;
+            
+            .input-title{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width:90px;
+            }
+           .log-in-button{
+                margin-top: 30px;
+            }
+            .forgot-password-container{
+                display: flex;
+                justify-content: center !important;
+                align-items: center;
+                align-content: center;
+            }
         }
     }
+}
 
+
+@media screen and (max-width: 650px) {    
+    .input-container{
+        flex-direction: column !important;
+    }
 }
