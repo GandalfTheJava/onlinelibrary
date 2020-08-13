@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setLocalStorage, loginUser } from '../../App.util';
+import { setLocalStorage, loginUser } from '../../../Utils/App.util';
 
 export const registerUser = async (email, password, passwordCheck, displayName) => {
     try {

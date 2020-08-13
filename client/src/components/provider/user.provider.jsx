@@ -3,14 +3,25 @@ import React, { createContext, useReducer } from 'react';
 export const UserContext = createContext({ user: {} });
 const INT_STATE = {
     token: "",
+    authorised: false,
     user: {}
 }
 const userReducer = (state = INT_STATE, action) => {
     switch (action.type) {
         case 'LOG_IN_USER':
-            return { ...state, token: action.token, user: action.payload };
+            return {
+                ...state,
+                token: action.token,
+                user: action.payload,
+                authorised: true
+            };
         case 'LOG_OUT_USER':
-            return { ...state, token: "", user: {} }; //back to initial state
+            return {
+                ...state,
+                token: "",
+                user: {},
+                authorised: false
+            }; //back to initial state
         default:
             return;
     }

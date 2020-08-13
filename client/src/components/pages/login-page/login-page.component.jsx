@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './login-page.styles.scss';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { TextField, Button } from '@material-ui/core';
-import { UserContext } from '../provider/user.provider';
-import { setLocalStorage, loginUser } from '../../App.util';
+import { UserContext } from '../../provider/user.provider';
+import { setLocalStorage, loginUser } from '../../../Utils/App.util';
 
 function LoginPage(props) {
     const [email, setEmail] = useState('');
@@ -18,7 +18,7 @@ function LoginPage(props) {
             const loginResponse = await loginUser(email, password);
             setCurrentUser({ type: 'LOG_IN_USER', token: loginResponse.data.token, payload: loginResponse.data.user });
             setLocalStorage(loginResponse.data.token);
-            props.history.push('/');
+            props.history.push("/dashboard");
         } catch (error) {
             console.log(error);
         }

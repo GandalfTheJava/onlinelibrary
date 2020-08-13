@@ -13,7 +13,7 @@ ReactDOM.render(
     <Router>
       <UserProvider>
         <DirectoryProvider>
-          <Route path="/" component={App} />
+          <App />
         </DirectoryProvider>
       </UserProvider >
     </Router>

@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 import './register.styles.scss';
-import { UserContext } from '../provider/user.provider';
+import { UserContext } from '../../provider/user.provider';
 import { TextField, Button } from '@material-ui/core';
-import { Form, Col } from 'react-bootstrap';
 import { registerUser } from './register.utils';
 
 function Register(props) {

@@ -5,7 +5,7 @@ import GenreDropdown from '../GenreDropdown/GenreDropdown';
 import Button from '@material-ui/core/Button';
 import logo from '../../assets/logo.svg';
 import { UserContext } from '../provider/user.provider';
-import { setLocalStorage } from '../../App.util';
+import { setLocalStorage } from '../../Utils/App.util';
 
 function Header(props) {
     const { currentUser, setCurrentUser } = useContext(UserContext);
