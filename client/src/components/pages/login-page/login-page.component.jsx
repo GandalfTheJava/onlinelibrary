@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import './login-page.styles.scss';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import AlertDemo from '../../../components/alert-demo/alert.component';
 import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../../provider/user.provider';
 import { setLocalStorage, loginUser } from '../../../Utils/App.util';
@@ -63,11 +64,7 @@ function LoginPage(props) {
                     </div>
                 </form>
                 <div className='warning'>
-                    <small>
-                        THIS IS A <b> DEMO APPLICATION.</b>
-                        <br />
-                            PLEASE <b>DO NOT USE </b> SENSITIVE INFORMATION.
-                        </small>
+                    <AlertDemo />
                 </div>
             </div>
         </div >

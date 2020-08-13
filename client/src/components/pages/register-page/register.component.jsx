@@ -3,7 +3,7 @@ import './register.styles.scss';
 import { UserContext } from '../../provider/user.provider';
 import { TextField, Button } from '@material-ui/core';
 import { registerUser } from './register.utils';
-
+import AlertDemo from '../../../components/alert-demo/alert.component';
 function Register(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -79,11 +79,7 @@ function Register(props) {
                         </div>
                     </form>
                     <div className='warning'>
-                        <small>
-                            THIS IS A <b> DEMO APPLICATION.</b>
-                            <br />
-                            PLEASE <b>DO NOT USE </b> SENSITIVE INFORMATION.
-                        </small>
+                        <AlertDemo />
                     </div>
                 </div>
             </div>

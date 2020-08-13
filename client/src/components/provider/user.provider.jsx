@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 
-export const UserContext = createContext({ user: {} });
+export const UserContext = createContext();
+
 const INT_STATE = {
     token: "",
     authorised: false,
