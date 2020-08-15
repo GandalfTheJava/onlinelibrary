@@ -1,0 +1,28 @@
+.container-sidebar-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ebeeef;
+    width: 100%;
+    min-height: 100vh;
+
+    .container-sidebar{
+        background: #fff;
+        overflow: hidden;
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        margin-right: 20px;
+        padding: 40px;
+        .container-sidebar-title{
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .container-sidebar-navigation{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

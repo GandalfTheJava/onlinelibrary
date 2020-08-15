@@ -1,0 +1,21 @@
+.container-dashboard-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ebeeef;
+    width: 100%;
+    min-height: 100vh;
+
+    .container-dashboard{
+        width: 99%;
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        
+        .container-dashboard-body{
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
