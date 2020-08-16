@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import './sidebar.styles.scss';
 import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -8,6 +9,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import HistoryIcon from '@material-ui/icons/History';
 import { sidebarContext } from '../provider/sidebarToggle.provider';
+import { Typography } from '@material-ui/core';
 
 const Sidebar = () => {
     const { sideBar } = useContext(sidebarContext);
@@ -34,7 +36,10 @@ const Sidebar = () => {
         <div className="container-sidebar-wrap" style={{ display: show ? 'block' : 'none' }}>
             <div className='container-sidebar'>
                 <div>
-                    <div className='container-sidebar-title'> WELCOME MESSAGE </div>
+                    <div className='container-sidebar-title'>
+                        <Typography variant='h6'>Welcome Message</Typography>
+                    </div>
+                    <Divider />
                     <div className='container-sidebar-navigation'>
                         <List>
                             {

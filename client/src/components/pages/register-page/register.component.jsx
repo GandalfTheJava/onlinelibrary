@@ -3,6 +3,7 @@ import './register.styles.scss';
 import { UserContext } from '../../provider/user.provider';
 import { TextField, Button } from '@material-ui/core';
 import { registerUser } from './register.utils';
+import { Link } from 'react-router-dom';
 import AlertDemo from '../../../components/alert-demo/alert.component';
 function Register(props) {
     const [email, setEmail] = useState('');
@@ -31,6 +32,7 @@ function Register(props) {
                                 name="email"
                                 label="Email"
                                 type='email'
+                                color="secondary"
                                 required
                                 fullWidth
                                 value={email}
@@ -42,7 +44,7 @@ function Register(props) {
                                 autoComplete="off"
                                 label="Display Name"
                                 name="displayName"
-                                type='displayName'
+                                color="secondary"
                                 required
                                 fullWidth
                                 value={displayName}
@@ -55,6 +57,7 @@ function Register(props) {
                                 name="checkPassword"
                                 label="Confirm Password"
                                 type='password'
+                                color="secondary"
                                 required
                                 fullWidth
                                 value={passwordCheck}
@@ -67,15 +70,26 @@ function Register(props) {
                                 name="password"
                                 label="Password"
                                 type='password'
+                                color="secondary"
                                 required
                                 fullWidth
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
                             />
                         </div>
-                        <div className='register-input'>
-                            <Button type='submit' className='submit-button' variant="contained" fullWidth={true} color="primary">Submit</Button>
-
+                        <div className='register-input' style={{ textAlign: 'center' }}>
+                            <Button
+                                type='submit'
+                                className='submit-button'
+                                variant="contained"
+                                fullWidth={true}
+                                color="secondary"
+                            >
+                                Submit
+                            </Button>
+                            <Button href="/" color="primary">
+                                I already have an account
+                            </Button>
                         </div>
                     </form>
                     <div className='warning'>

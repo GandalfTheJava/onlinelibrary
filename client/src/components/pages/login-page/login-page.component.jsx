@@ -4,7 +4,7 @@ import './login-page.styles.scss';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AlertDemo from '../../../components/alert-demo/alert.component';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, Typography } from '@material-ui/core';
 import { UserContext } from '../../provider/user.provider';
 import { setLocalStorage, loginUser } from '../../../Utils/App.util';
 
@@ -37,6 +37,7 @@ function LoginPage(props) {
                             label="Email"
                             name="email"
                             type="email"
+                            color="secondary"
                             onChange={event => setEmail(event.target.value)}
                             value={email}
                             fullWidth={true}
@@ -47,20 +48,21 @@ function LoginPage(props) {
                             label="Password"
                             name="password"
                             type='password'
+                            color="secondary"
                             onChange={event => setPassword(event.target.value)}
                             value={password}
                             fullWidth={true}
                         />
                     </div>
                     <div className='input-container'>
-                        <Button className='submit-button' fullWidth={true} type='submit' variant="contained" color="primary">Submit</Button>
+                        <Button className='submit-button' fullWidth={true} type='submit' variant="contained" color="secondary">Submit</Button>
                     </div>
                     <div className='option-container'>
                         <FormControlLabel
                             control={<Checkbox name="checkedG" />}
                             label="Remember Me"
                         />
-                        <small><Link to="/register">New User?</Link></small>
+                        <Link to="/register">New User?</Link>
                     </div>
                 </form>
                 <div className='warning'>
