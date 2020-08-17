@@ -14,7 +14,9 @@ import { Typography } from '@material-ui/core';
 
 const Sidebar = () => {
     const { sideBar } = useContext(sidebarContext);
-    let show = sideBar.sideBar;
+
+    let showSidebar = sideBar.sideBar;
+
     let menuTitles = [
         {
             title: 'Dashboard',
@@ -33,26 +35,24 @@ const Sidebar = () => {
         }
     ];
     return (
-        <div className="container-sidebar-wrap" style={{ display: show ? 'block' : 'none' }}>
+        <div className="container-sidebar-wrap" style={{ display: showSidebar ? 'block' : 'none' }}>
             <div className='container-sidebar'>
-                <div>
-                    <div className='container-sidebar-title'>
-                        <Typography variant='h6'>Welcome Message</Typography>
-                    </div>
-                    <Divider />
-                    <div className='container-sidebar-navigation'>
-                        <List>
-                            {
-                                menuTitles.map((nav, index) => (
-                                    <ListItem key={index}>
-                                        <ListItemIcon>{nav.icon}</ListItemIcon>
-                                        <ListItemText primary={nav.title} />
-                                    </ListItem>
-                                ))
-                            }
-                        </List>
-                        <GenreDropdown />
-                    </div>
+                <div className='container-sidebar-title'>
+                    <Typography variant='h6'>Library</Typography>
+                </div>
+                <Divider />
+                <div className='container-sidebar-navigation'>
+                    <List>
+                        {
+                            menuTitles.map((nav, index) => (
+                                <ListItem key={index}>
+                                    <ListItemIcon>{nav.icon}</ListItemIcon>
+                                    <ListItemText primary={nav.title} />
+                                </ListItem>
+                            ))
+                        }
+                    </List>
+                    <GenreDropdown />
                 </div>
             </div>
         </div >

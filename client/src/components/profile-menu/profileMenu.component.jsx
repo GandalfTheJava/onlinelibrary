@@ -7,6 +7,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const ProfileMenu = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext);
+
     const signUserOut = () => {
         setLocalStorage(null);
         setCurrentUser({ type: 'LOG_OUT_USER' }); //Sets global user object as empty

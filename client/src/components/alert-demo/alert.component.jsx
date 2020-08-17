@@ -1,7 +1,7 @@
 import React from 'react';
 function AlertDemo() {
     return (
-        <div>
+        <div style={{ textAlign: 'center' }}>
             <small>
                 THIS IS A <b> DEMO APPLICATION.</b>
                 <br />

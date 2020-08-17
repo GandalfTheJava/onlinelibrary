@@ -7,12 +7,11 @@ import ProfileMenu from '../profile-menu/profileMenu.component';
 function Header() {
     return (
         <div className="header-wrap">
-            <div className="logo-container option">
-                <SidebarToggle />
-            </div>
-            <div className="warning">
-                <AlertDemo />
-            </div>
+
+            <SidebarToggle />
+
+            <AlertDemo />
+
             <div className="profile-menu-container">
                 <ProfileMenu />
             </div>
