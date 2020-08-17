@@ -5,23 +5,18 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: black;
-}
-.logo-container{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-}
-.options-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-right: 10px;
-    &.option{
-        margin:0px 5px;
+    background-color: white;
+    border-right: 2px solid #ebeeef;
+    border-bottom: 2px solid #ebeeef;
+    margin-bottom: 5px;
+    .warning{
+        text-align: center;
+    }
+    .profile-menu-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-right: 15px;
+    
     }
 }
-
-
-

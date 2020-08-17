@@ -1,33 +1,30 @@
 import React from "react";
 import './dashboard.styles.scss';
 import Breadcrumbs from '../breadcrumbs/breadcrumbs.component';
+import BorrowedTable from '../borrowedTable/borrowedTable.component';
+import Header from '../header/header.component';
+
 const Dashboard = () => {
     return (
         <div className="container-dashboard-wrap">
+            <div className='container-dashboard-header'>
+                <Header />
+            </div>
             <Breadcrumbs />
             <div className="container-dashboard">
-                WRAP THIS WITH BORDER RADIUS
                 <div className="container-dashboard-title">
-                    Loans TITLE
+                    Loans
                 </div>
-
                 <div className='container-dashboard-search'>
-                    SOME WAY TO SEARCH FOR BOOKS HERE
-                    AUTHOR
-                    NAME
-                    RELEASE DATE?
+                    §
                 </div>
                 <div className="container-dashboard-status">
-                    <div className='container-dashboard-status-title'>
-                        TABLE OF TITLES
-                    </div>
                     <div className='container-dashboard-status-results'>
-                        CURRENT LOANED OUT BOOKS BY THIS USER
+                        <BorrowedTable />
                     </div>
                 </div>
             </div>
         </div>
     )
 }
-
 export default Dashboard;

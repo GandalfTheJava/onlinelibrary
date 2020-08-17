@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 const Breadcrumbs = (props) => {
     const { history, location: { pathname } } = props;
     let pathNames = pathname.split("/").filter(x => x);
+
     const Capitilize = (name) => {
         return name.charAt(0).toUpperCase() + name.slice(1);
     }

@@ -3,19 +3,21 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: #ebeeef;
+    
     .container-sidebar{
         background: #fff;
         overflow: hidden;
         position: relative;
         display:flex;
         flex-direction: column;
-        margin-right: 15px;
         padding: 40px;
-        min-height: 98vh;
+        min-height: 100vh;
+        
         .container-sidebar-title{
             text-align: center;
             text-transform: uppercase;
         }
+
         .container-sidebar-navigation{
             display:flex;
             flex-direction: column;

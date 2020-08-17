@@ -32,7 +32,6 @@ const Sidebar = () => {
             link: '/history'
         }
     ];
-
     return (
         <div className="container-sidebar-wrap" style={{ display: show ? 'block' : 'none' }}>
             <div className='container-sidebar'>

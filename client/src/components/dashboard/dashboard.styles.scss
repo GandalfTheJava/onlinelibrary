@@ -1,9 +1,49 @@
 .container-dashboard-wrap{
-    border-radius: 2px;
     width: 100%;
     background-color: #ebeeef;
+    border-left:10px solid #ebeeef;
+    min-height: 100%;
+
     .container-dashboard{
         overflow: hidden;
         position: relative;
+        margin-top: 10px;
+        border-radius: 5px;
+        background-color: white;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        width:100%;
+        padding:20px;
+        
+        .container-dashboard-title{
+            font-family: 'Roboto', sans-serif;
+            font-size: 40px;
+            font-weight: 500;
+        }
+
+        .container-dashboard-search{
+            border: 2px solid black;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .container-borrowed-search{
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .container-dashboard-status{
+            border: 2px solid black;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+           
+        }
     }
 }
