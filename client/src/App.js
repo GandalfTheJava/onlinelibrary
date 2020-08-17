@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import './App.scss';
 import Directory from './components/directory/directory';
 import LoginPage from './components/pages/login-page/login-page.component';
@@ -9,13 +9,10 @@ import Homepage from './components/pages/homepage/homepage.component';
 import PrivateRoute from './Utils/PrivateRoute.jsx';
 import PublicRoute from './Utils/PublicRoute.jsx';
 import NotAuth from './components/pages/not-authorised-page/not-auth.component';
-
 //import AlertDemo from './components/alert-demo/alert.component';
-
 import { UserContext } from './components/provider/user.provider';
 import { checkLoggedIn } from './Utils/App.util';
 import { Switch, Route } from "react-router-dom";
-
 
 function App() {
   const { currentUser, setCurrentUser } = useContext(UserContext);

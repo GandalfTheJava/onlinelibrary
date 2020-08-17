@@ -14,12 +14,9 @@ const Homepage = () => {
                         <Header />
                     </div>
                     <div className='container-homepage-body'>
-                        <div>
-                            <Sidebar />
-                        </div>
-                        <div>
-                            <Dashboard />
-                        </div>
+                        <Sidebar />
+                        <Dashboard />
+
                     </div>
                 </div>
             </div>

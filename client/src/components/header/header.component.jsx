@@ -14,6 +14,9 @@ function Header() {
                 </Link>
                 <SidebarToggle />
             </div>
+            <p style={{ color: 'white', textAlign: 'center', marginTop: '5px' }}>
+                THIS IS A DEMO APPLICATION. <br />
+                PLEASE DO NOT USE SENSITIVE INFORMATION.</p>
             <div className="options-container">
                 <ProfileMenu />
             </div>

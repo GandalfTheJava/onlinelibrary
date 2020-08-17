@@ -1,25 +1,28 @@
 import React from "react";
-
+import './dashboard.styles.scss';
+import Breadcrumbs from '../breadcrumbs/breadcrumbs.component';
 const Dashboard = () => {
     return (
         <div className="container-dashboard-wrap">
-            Outside
+            <Breadcrumbs />
             <div className="container-dashboard">
-                Inside
+                WRAP THIS WITH BORDER RADIUS
                 <div className="container-dashboard-title">
-                    Loans
+                    Loans TITLE
                 </div>
 
                 <div className='container-dashboard-search'>
-                    Search for loaned books
+                    SOME WAY TO SEARCH FOR BOOKS HERE
+                    AUTHOR
+                    NAME
+                    RELEASE DATE?
                 </div>
-
                 <div className="container-dashboard-status">
                     <div className='container-dashboard-status-title'>
-                        Titles
+                        TABLE OF TITLES
                     </div>
                     <div className='container-dashboard-status-results'>
-                        Borrowed Stuff
+                        CURRENT LOANED OUT BOOKS BY THIS USER
                     </div>
                 </div>
             </div>
