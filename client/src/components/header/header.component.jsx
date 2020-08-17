@@ -1,19 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./header.styles.scss";
 import { Link } from 'react-router-dom';
-import GenreDropdown from '../GenreDropdown/GenreDropdown';
-import Button from '@material-ui/core/Button';
 import SidebarToggle from '../SidebarToggle/SidebarToggle';
+import ProfileMenu from '../profile-menu/profileMenu.component';
 import logo from '../../assets/logo.svg';
-import { UserContext } from '../provider/user.provider';
-import { setLocalStorage } from '../../Utils/App.util';
 
-function Header(props) {
-    const { setCurrentUser } = useContext(UserContext);
-    const signUserOut = () => {
-        setLocalStorage(null);
-        setCurrentUser({ type: 'LOG_OUT_USER' }); //Sets global user object as empty
-    }
+function Header() {
     return (
         <div className="header-wrap">
             <div className="logo-container option">
@@ -23,8 +15,7 @@ function Header(props) {
                 <SidebarToggle />
             </div>
             <div className="options-container">
-                <GenreDropdown />
-                <Button variant="contained" onClick={() => signUserOut()}>Sign Out</Button>
+                <ProfileMenu />
             </div>
         </div >
     )

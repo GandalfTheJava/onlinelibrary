@@ -1,5 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import './sidebar.styles.scss';
+import GenreDropdown from '../GenreDropdown/GenreDropdown';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
@@ -51,6 +52,7 @@ const Sidebar = () => {
                                 ))
                             }
                         </List>
+                        <GenreDropdown />
                     </div>
                 </div>
             </div>

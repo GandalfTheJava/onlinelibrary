@@ -1,4 +1,4 @@
-.container-dashboard-wrap{
+.container-homepage-wrap{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -6,14 +6,14 @@
     width: 100%;
     min-height: 100vh;
 
-    .container-dashboard{
+    .container-homepage{
         width: 99%;
         background: #fff;
         border-radius: 15px;
         overflow: hidden;
         position: relative;
         
-        .container-dashboard-body{
+        .container-homepage-body{
             display: flex;
             flex-direction: row;
         }

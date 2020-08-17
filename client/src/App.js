@@ -1,12 +1,11 @@
 import React, { useEffect, useContext, useState } from 'react';
 import './App.scss';
-import Header from './components/header/header.component';
 import Directory from './components/directory/directory';
 import LoginPage from './components/pages/login-page/login-page.component';
 import RegisterPage from './components/pages/register-page/register.component';
 import Genre from './components/Genre/Genre.component';
 import PageNotFound from './components/pages/not-found-page/not-found-page';
-import DashBoard from './components/pages/dashboard-page/dashboard.component';
+import Homepage from './components/pages/homepage/homepage.component';
 import PrivateRoute from './Utils/PrivateRoute.jsx';
 import PublicRoute from './Utils/PublicRoute.jsx';
 import NotAuth from './components/pages/not-authorised-page/not-auth.component';
@@ -39,7 +38,7 @@ function App() {
 
           <PrivateRoute path="/directory" component={Directory} auth={authorised} />
           <PrivateRoute path="/genre/:genreid/" component={Genre} auth={authorised} />
-          <PrivateRoute path="/dashboard" component={DashBoard} auth={authorised} />
+          <PrivateRoute path="/dashboard" component={Homepage} auth={authorised} />
 
           <Route component={PageNotFound} />
         </Switch>

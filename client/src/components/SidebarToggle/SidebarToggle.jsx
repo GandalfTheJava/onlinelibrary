@@ -6,7 +6,7 @@ const SidebarToggle = () => {
     return (
         <>
             {
-                <MenuIcon color="primary"
+                <MenuIcon color="secondary"
                     onClick={() => toggleSidebar(!sideBar)}>
                 </MenuIcon>
             }

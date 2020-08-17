@@ -3,8 +3,6 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: #ebeeef;
-    width: 100%;
-    min-height: 100vh;
 
     .container-sidebar{
         background: #fff;
@@ -14,6 +12,8 @@
         flex-direction: column;
         margin-right: 20px;
         padding: 40px;
+        min-height: 98vh;
+        
         .container-sidebar-title{
             text-align: center;
             text-transform: uppercase;
