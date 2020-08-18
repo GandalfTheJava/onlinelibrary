@@ -1,22 +1,31 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './sidebar.styles.scss';
+import { makeStyles } from '@material-ui/core/styles';
 import GenreDropdown from '../GenreDropdown/GenreDropdown';
-import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import HistoryIcon from '@material-ui/icons/History';
+import Button from '@material-ui/core/Button';
 import { sidebarContext } from '../provider/sidebarToggle.provider';
 import { Typography } from '@material-ui/core';
+
+
+const useStyles = makeStyles({
+    root: {
+        '&:hover': {
+            backgroundColor: "#db5886"
+        },
+    },
+});
 
 const Sidebar = () => {
     const { sideBar } = useContext(sidebarContext);
 
     let showSidebar = sideBar.sideBar;
-
+    const classes = useStyles();
     let menuTitles = [
         {
             title: 'Dashboard',
@@ -42,16 +51,20 @@ const Sidebar = () => {
                 </div>
                 <Divider />
                 <div className='container-sidebar-navigation'>
-                    <List>
-                        {
-                            menuTitles.map((nav, index) => (
-                                <ListItem key={index}>
-                                    <ListItemIcon>{nav.icon}</ListItemIcon>
-                                    <ListItemText primary={nav.title} />
-                                </ListItem>
-                            ))
-                        }
-                    </List>
+                    {
+                        menuTitles.map((nav, index) => (
+                            <Link to={`${nav.link}`} style={{ textDecoration: 'none' }}>
+                                <Button
+                                    className={classes.root}
+                                    key={index}
+                                    size="large"
+                                    startIcon={<ListItemIcon>{nav.icon}</ListItemIcon>}
+                                >
+                                    {nav.title}
+                                </Button>
+                            </Link>
+                        ))
+                    }
                     <GenreDropdown />
                 </div>
             </div>
