@@ -30,7 +30,7 @@ const Sidebar = () => {
         {
             title: 'Dashboard',
             icon: <DashboardIcon />,
-            link: '/dashboard'
+            link: '/homepage'
         },
         {
             title: 'Directory',

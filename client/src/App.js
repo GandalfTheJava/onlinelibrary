@@ -35,7 +35,7 @@ function App() {
 
           <PrivateRoute path="/directory" component={Directory} auth={authorised} />
           <PrivateRoute path="/genre/:genreid/" component={Genre} auth={authorised} />
-          <PrivateRoute path="/dashboard" component={Homepage} auth={authorised} />
+          <PrivateRoute path="/homepage" component={Homepage} auth={authorised} />
 
           <Route component={PageNotFound} />
         </Switch>

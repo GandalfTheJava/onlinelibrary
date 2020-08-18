@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PublicRoute = ({ auth, ...props }) => {
     return auth
-        ? (<Redirect to="/dashboard" />)
+        ? (<Redirect to="/homepage" />)
         : (<Route {...props} />)
 };
 
