@@ -33,8 +33,8 @@ function App() {
           <PublicRoute exact path="/register" component={RegisterPage} auth={authorised} />
           <PublicRoute exact path="/notauthorised" component={NotAuth} auth={authorised} />
 
-          <PrivateRoute path="/directory" component={Directory} auth={authorised} />
-          <PrivateRoute path="/genre/:genreid/" component={Genre} auth={authorised} />
+          {/* <PrivateRoute path="/homepage/directory" component={Directory} auth={authorised} />
+          <PrivateRoute path="/genre/:genreid/" component={Genre} auth={authorised} /> */}
           <PrivateRoute path="/homepage" component={Homepage} auth={authorised} />
 
           <Route component={PageNotFound} />

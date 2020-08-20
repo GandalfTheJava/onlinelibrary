@@ -6,15 +6,13 @@ import Sidebar from '../../sidebar/sidebar.component';
 import Dashboard from "../../dashboard/dashboard.component";
 import Header from '../../header/header.component';
 import Breadcrumbs from '../../breadcrumbs/breadcrumbs.component';
-import Directory from '../../directory/directory';
 import TableContents from '../../tableofcontents/tableofcontents.component';
 import PageNotFound from '../../pages/not-found-page/not-found-page';
+import History from '../../history/history.component';
 
 const Homepage = (props) => {
-    let dashboard = false;
-    let directory = true;
-    let history = true;
-    console.log(props);
+    let { match } = props;
+    console.log(match);
     return (
         <>
             <div className="container-homepage-wrap">
@@ -30,15 +28,13 @@ const Homepage = (props) => {
                             <Breadcrumbs />
                         </div>
                         {
-                            dashboard ?
+                            match.path.slice(1) === 'homepage' ?
                                 <Dashboard /> :
-                                directory ?
+                                match.path.slice(1) === 'directory' ?
                                     <TableContents /> :
-                                    history ?
-                                        <Dashboard /> :
+                                    match.path.slice(1) === 'history' ?
+                                        <History /> :
                                         <PageNotFound />
-
-
                         }
                     </div>
                 </div>

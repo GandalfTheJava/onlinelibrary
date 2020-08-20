@@ -35,12 +35,12 @@ const Sidebar = () => {
         {
             title: 'Directory',
             icon: <LibraryBooksIcon />,
-            link: '/directory'
+            link: '/homepage/directory'
         },
         {
             title: 'History',
             icon: <HistoryIcon />,
-            link: '/history'
+            link: '/homepage/history'
         }
     ];
     return (
