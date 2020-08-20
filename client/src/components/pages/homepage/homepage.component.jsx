@@ -7,7 +7,7 @@ import Dashboard from "../../dashboard/dashboard.component";
 import Header from '../../header/header.component';
 import Breadcrumbs from '../../breadcrumbs/breadcrumbs.component';
 import Directory from '../../directory/directory';
-import TableContents from '../../tableofcontents/tableofcontens.component';
+import TableContents from '../../tableofcontents/tableofcontents.component';
 import PageNotFound from '../../pages/not-found-page/not-found-page';
 
 const Homepage = (props) => {
