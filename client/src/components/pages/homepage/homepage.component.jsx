@@ -11,8 +11,9 @@ import PageNotFound from '../../pages/not-found-page/not-found-page';
 import History from '../../history/history.component';
 
 const Homepage = (props) => {
-    let { match } = props;
-    console.log(match);
+    const { match, history, location: { pathname } } = props;
+    let pathNames = pathname.split('/').filter(x => x);
+    let choice = pathNames[pathNames.length - 1];
     return (
         <>
             <div className="container-homepage-wrap">
@@ -28,11 +29,11 @@ const Homepage = (props) => {
                             <Breadcrumbs />
                         </div>
                         {
-                            match.path.slice(1) === 'homepage' ?
+                            choice === 'homepage' ?
                                 <Dashboard /> :
-                                match.path.slice(1) === 'directory' ?
+                                choice === 'directory' ?
                                     <TableContents /> :
-                                    match.path.slice(1) === 'history' ?
+                                    choice === 'history' ?
                                         <History /> :
                                         <PageNotFound />
                         }
