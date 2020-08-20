@@ -17,7 +17,8 @@ const Breadcrumbs = (props) => {
                     const isLast = index === pathNames.length - 1;
                     return (
                         isLast ?
-                            <Typography>{Capitilize(name)}</Typography> :
+                            <Typography>{Capitilize(name)}</Typography>
+                            :
                             <Link onClick={() => history.push(routeTo)}>
                                 {Capitilize(name)}
                             </Link>

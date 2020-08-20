@@ -4,7 +4,7 @@ import Directory from './components/directory/directory';
 import LoginPage from './components/pages/login-page/login-page.component';
 import RegisterPage from './components/pages/register-page/register.component';
 import Genre from './components/Genre/Genre.component';
-import PageNotFound from './components/pages/not-found-page/not-found-page';
+import ErrorPage from './components/pages/error-page/error-page';
 import Homepage from './components/pages/homepage/homepage.component';
 import PrivateRoute from './Utils/PrivateRoute.jsx';
 import PublicRoute from './Utils/PublicRoute.jsx';
@@ -33,11 +33,8 @@ function App() {
           <PublicRoute exact path="/register" component={RegisterPage} auth={authorised} />
           <PublicRoute exact path="/notauthorised" component={NotAuth} auth={authorised} />
 
-          {/* <PrivateRoute path="/homepage/directory" component={Directory} auth={authorised} />
-          <PrivateRoute path="/genre/:genreid/" component={Genre} auth={authorised} /> */}
           <PrivateRoute path="/homepage" component={Homepage} auth={authorised} />
-
-          <Route component={PageNotFound} />
+          <Route component={ErrorPage} />
         </Switch>
       </div>
     </div >

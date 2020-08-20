@@ -7,13 +7,13 @@ import Dashboard from "../../dashboard/dashboard.component";
 import Header from '../../header/header.component';
 import Breadcrumbs from '../../breadcrumbs/breadcrumbs.component';
 import TableContents from '../../tableofcontents/tableofcontents.component';
-import PageNotFound from '../../pages/not-found-page/not-found-page';
+import PageNotFound from '../error-page/error-page';
 import History from '../../history/history.component';
 
 const Homepage = (props) => {
-    const { match, history, location: { pathname } } = props;
+    const { location: { pathname } } = props;
     let pathNames = pathname.split('/').filter(x => x);
-    let choice = pathNames[pathNames.length - 1];
+    let choice = pathNames[pathNames.length - 1]; //Get last pathname, this is the choice
     return (
         <>
             <div className="container-homepage-wrap">
