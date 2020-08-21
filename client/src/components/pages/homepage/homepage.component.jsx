@@ -9,7 +9,7 @@ import Breadcrumbs from '../../breadcrumbs/breadcrumbs.component';
 import TableContents from '../../tableofcontents/tableofcontents.component';
 import PageNotFound from '../error-page/error-page';
 import History from '../../history/history.component';
-
+import Profile from '../profile/profile.component';
 const Homepage = (props) => {
     const { location: { pathname } } = props;
     let pathNames = pathname.split('/').filter(x => x);
@@ -35,7 +35,9 @@ const Homepage = (props) => {
                                     <TableContents /> :
                                     choice === 'history' ?
                                         <History /> :
-                                        <PageNotFound />
+                                        choice === 'profile' ?
+                                            <Profile /> :
+                                            <PageNotFound />
                         }
                     </div>
                 </div>

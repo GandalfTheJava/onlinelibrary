@@ -19,10 +19,6 @@ const ProfileMenu = () => {
                     {currentUser.user.displayName}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item href="/editprofile">
-                        <PersonIcon />
-                        Edit Profile
-                        </Dropdown.Item>
                     <Dropdown.Item href="/" onClick={() => signUserOut()}>
                         <ExitToAppIcon />
                         Sign Out
