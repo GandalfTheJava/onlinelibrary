@@ -11,6 +11,8 @@ import { UserContext } from './components/provider/user.provider';
 import { checkLoggedIn } from './Utils/App.util';
 import { Switch, Route } from "react-router-dom";
 
+
+
 function App() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
   let { authorised } = currentUser;
