@@ -6,13 +6,13 @@ export const checkLoggedIn = async () => { //check to see if a valid jwt token i
         token = "";
         return;
     }
-    const tokenResponse = await axios.post('http://huddle-library.herokuapp.com/users/tokenisvalid',
+    const tokenResponse = await axios.post('http://huddle-online-library.herokuapp.com/users/tokenisvalid',
         null,
         {
             headers: { "x-auth-token": token }
         })
     if (tokenResponse.data) {
-        const userData = await axios.get('http://huddle-library.herokuapp.com/users/', { headers: { "x-auth-token": token } });
+        const userData = await axios.get('http://huddle-online-library.herokuapp.com/users/', { headers: { "x-auth-token": token } });
         setLocalStorage(token);
         return { token: token, user: userData.data };
     };
@@ -23,6 +23,6 @@ export const setLocalStorage = (token) => {
     else localStorage.setItem("auth-token", "");
 };
 export const loginUser = async (email, password) => {
-    const loginResponse = await axios.post('http://huddle-library.herokuapp.com/users/login', { email, password });
+    const loginResponse = await axios.post('http://huddle-online-library.herokuapp.com/users/login', { email, password });
     return loginResponse;
 }
