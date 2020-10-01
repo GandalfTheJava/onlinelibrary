@@ -4,7 +4,7 @@ import './login-page.styles.scss';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import AlertDemo from '../../../components/alert-demo/alert.component';
-import { TextField, Button, Typography } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import { UserContext } from '../../provider/user.provider';
 import { setLocalStorage, loginUser } from '../../../Utils/App.util';
 
